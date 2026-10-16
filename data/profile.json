@@ -59,7 +59,8 @@
         "Bash",
         "Python",
         "Groovy"
-      ]
+      ],
+      "logo": "assets/companies/globallogic.png"
     },
     {
       "company": "West Auto Hub",
@@ -90,7 +91,8 @@
         "Monitoring",
         "Backup & Recovery"
       ],
-      "focus": "Infrastructure Migration · Hetzner Cloud · Linux Operations"
+      "focus": "Infrastructure Migration · Hetzner Cloud · Linux Operations",
+      "logo": "assets/companies/west-auto-hub.svg"
     },
     {
       "company": "Midcontract",
@@ -116,7 +118,8 @@
         "GitLab",
         "Jenkins",
         "TeamCity"
-      ]
+      ],
+      "logo": "assets/companies/midcontract.svg"
     },
     {
       "company": "PrivatBank",
@@ -141,7 +144,8 @@
         "Nginx",
         "Networking",
         "Monitoring"
-      ]
+      ],
+      "logo": "assets/companies/privatbank.svg"
     },
     {
       "company": "UAPAY",
@@ -163,7 +167,8 @@
         "Monitoring",
         "Deployment",
         "Automated reporting"
-      ]
+      ],
+      "logo": "assets/companies/uapay.svg"
     },
     {
       "company": "Namecheap Inc",
@@ -184,7 +189,8 @@
         "Incident response",
         "Root-cause analysis",
         "Automation"
-      ]
+      ],
+      "logo": "assets/companies/namecheap.svg"
     },
     {
       "company": "Fozzy Group",
@@ -209,7 +215,8 @@
         "SQL",
         "Networking",
         "Monitoring"
-      ]
+      ],
+      "logo": "assets/companies/fozzy.svg"
     }
   ],
   "skills": [

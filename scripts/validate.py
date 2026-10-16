@@ -76,6 +76,7 @@ for degree in p['education']:
     assert degree['field'] in html and degree['institution'] in html
 assert p['contact']['github'] in [str(a.get_object()['/A'].get('/URI','')) for a in pdf.pages[1].get('/Annots',[]) if a.get_object().get('/A')]
 for r in p['roles']:
+    assert (SITE/r['logo']).is_file(), r['company']+' logo'
     assert r['company'] in combined and r['title'] in combined and r['dates'] in combined,(r['company'],'PDF chronology')
     assert r['company'] in html and r['dates'] in html,(r['company'],'website chronology')
     for bullet in r['pdf_bullets']:assert ' '.join(bullet.split()) in flat,(r['company'],'PDF bullet')

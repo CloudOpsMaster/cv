@@ -141,3 +141,9 @@
 .career-card summary>.tags{padding:13px 0 0}
 
 @media(max-width:767px){.mobile-nav:not([hidden]){grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Employer branding is self-hosted and never stretched or cropped. */
+.career-overview{grid-template-columns:104px minmax(0,1fr) auto}
+.company-mark{width:100px;height:56px;padding:7px;background:#fff;border:1px solid #e7eff9;border-radius:9px}
+.company-logo{width:100%;height:100%;object-fit:contain;display:block}
+@media(max-width:767px){.career-overview{grid-template-columns:64px minmax(0,1fr)}.company-mark{width:64px;height:46px;padding:6px}}

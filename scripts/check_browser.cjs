@@ -61,6 +61,16 @@ async function checkLayout(page, label) {
       assert.equal(await page.locator('#projects').count(),0,'Selected work removed');
       assert(!/\bECTS\b/.test(await page.locator('body').innerText()));
       assert.equal(await page.locator('.career-card').count(),7);
+      const logos=page.locator('.company-logo');
+      assert.equal(await logos.count(),profile.roles.length);
+      for(let i=0;i<profile.roles.length;i++) {
+        const logo=logos.nth(i);await logo.scrollIntoViewIfNeeded();
+        await logo.evaluate(img=>img.decode());
+        assert.equal(await logo.getAttribute('src'),profile.roles[i].logo);
+        const dimensions=await logo.evaluate(img=>({natural:img.naturalWidth,fit:getComputedStyle(img).objectFit,width:img.getBoundingClientRect().width}));
+        assert(dimensions.natural>0 && dimensions.width>0,'Employer logo loaded');
+        assert.equal(dimensions.fit,'contain','Employer logo keeps its aspect ratio');
+      }
       assert(await page.locator('.career-card').first().getAttribute('open') !== null);
       for (let index=0;index<profile.roles.length;index++) {
         const card=page.locator('.career-card').nth(index);
