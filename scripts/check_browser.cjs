@@ -169,10 +169,11 @@ async function checkLayout(page, label) {
     }
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.locator('.portrait-orbit').evaluate(el=>getComputedStyle(el).animationName),'none');
-    const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
+    const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844},reducedMotion:'reduce'});
     const plain=await nojs.newPage();await plain.goto(url+'#experience');
     assert.equal(await plain.locator('.experience-entry').count(),7);assert(await plain.locator('#experience').isVisible());
-    await plain.locator('.career-card').nth(1).locator('summary').click();
+    await plain.locator('.career-card').nth(1).locator('summary').focus();
+    await plain.keyboard.press('Enter');
     assert(await plain.locator('.career-card').nth(1).locator('.responsibilities').isVisible(),'Native disclosure works without JavaScript');
     assert.equal(await page.locator('.arrival-scene').count(),0,'No arrival animation with reduced motion');
     const animated=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
