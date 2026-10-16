@@ -65,6 +65,7 @@ async function checkLayout(page, label) {
       assert.equal(await logos.count(),profile.roles.length);
       for(let i=0;i<profile.roles.length;i++) {
         const logo=logos.nth(i);await logo.scrollIntoViewIfNeeded();
+        await page.waitForFunction(img=>img.complete && img.naturalWidth>0,await logo.elementHandle());
         await logo.evaluate(img=>img.decode());
         assert.equal(await logo.getAttribute('src'),profile.roles[i].logo);
         const dimensions=await logo.evaluate(img=>({natural:img.naturalWidth,fit:getComputedStyle(img).objectFit,width:img.getBoundingClientRect().width}));
