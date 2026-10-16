@@ -688,31 +688,61 @@
       "qualification": "Master’s degree",
       "field": "Information Management Systems and Technologies",
       "dates": "2022 – 2024",
-      "graduation_year": "2024"
+      "graduation_year": "2024",
+      "tags": [
+        "Information Management",
+        "IT Systems"
+      ]
     },
     {
       "institution": "Kharkiv National University of Radio Electronics",
       "qualification": "Master’s degree",
       "field": "Financial and Economic Security",
       "dates": "2011 – 2013",
-      "graduation_year": "2013"
+      "graduation_year": "2013",
+      "tags": [
+        "Finance",
+        "Security"
+      ]
+    },
+    {
+      "institution": "Kharkiv National Air Force University named after Ivan Kozhedub",
+      "qualification": "Specialist degree",
+      "field": "Radio Electronic Warfare",
+      "dates": "2009 – 2011",
+      "graduation_year": "2011",
+      "tags": [
+        "Radio Electronic Warfare",
+        "Military Technologies"
+      ],
+      "source": "Candidate-provided edication.png"
     },
     {
       "institution": "Kharkiv National University of Radio Electronics",
       "qualification": "Master’s degree",
       "field": "Information Security",
       "dates": "2007 – 2013",
-      "graduation_year": "2013"
+      "graduation_year": "2013",
+      "tags": [
+        "Cybersecurity",
+        "Information Protection"
+      ]
     }
   ],
   "languages": [
     {
       "name": "Ukrainian",
-      "level": "Native"
+      "level": "Native",
+      "description": "Native",
+      "visual_dots": 5,
+      "flag": "ukrainian"
     },
     {
       "name": "English",
-      "level": "B2–C1"
+      "level": "B2–C1",
+      "description": "Professional working proficiency",
+      "visual_dots": 4,
+      "flag": "english"
     }
   ],
   "meta": {
@@ -778,5 +808,43 @@
         "description": "Familiar with basics and initial experience"
       }
     ]
+  },
+  "about_overview": {
+    "intro": "DevOps and cloud infrastructure professional with 12+ years of IT experience, including 7+ years in DevOps, infrastructure automation and production environments.",
+    "headings": [
+      "Experience and focus",
+      "Domains and industries",
+      "Leadership and collaboration",
+      "Current interests"
+    ],
+    "focus": [
+      "Cloud & Platform Engineering",
+      "Infrastructure Operations",
+      "Automation & Reliability",
+      "Team Leadership & Delivery"
+    ],
+    "facts": [
+      {
+        "value": "12+ years",
+        "label": "Total IT experience",
+        "icon": "briefcase"
+      },
+      {
+        "value": "7+ years",
+        "label": "DevOps & Cloud",
+        "icon": "gear"
+      },
+      {
+        "value": "Production",
+        "label": "Enterprise environments",
+        "icon": "server"
+      },
+      {
+        "value": "Cross-functional",
+        "label": "Teams & stakeholders",
+        "icon": "users"
+      }
+    ],
+    "source": "Candidate-provided 123.png"
   }
 }

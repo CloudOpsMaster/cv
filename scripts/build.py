@@ -2,6 +2,7 @@
 from pathlib import Path
 from html import escape
 import json, os
+from visuals import icon as ui_icon, orbits
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data/profile.json'
 def load_profile():
@@ -43,9 +44,22 @@ def build_site():
     for project in p['projects']:
         link=f'<a class="inline-link" href="{esc(project["url"])}" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>' if project['url'] else ''
         projects+=f'<article class="project-card"><div class="project-heading"><h3>{esc(project["name"])}</h3><p class="project-type">{esc(project["type"])}</p></div><p>{esc(project["description"])}</p><p class="contribution"><strong>Contribution:</strong> {esc(project["contribution"])}</p><div class="project-bottom">{tags(project["technologies"])}{link}</div></article>'
-    education=''.join(f'<article class="education-row"><div><h3>{esc(d["field"])}</h3><p>{esc(d["qualification"])} · {esc(d["dates"])}</p></div><time datetime="{d["graduation_year"]}">{d["graduation_year"]}</time></article>' for d in p['education'])
-    person={'@context':'https://schema.org','@type':'Person','name':p['name'],'jobTitle':p['title'],'url':c['website'],'email':'mailto:'+c['email'],'telephone':c['tel'],'sameAs':[c['github'],c['telegram']],'knowsAbout':['AWS','Kubernetes','Terraform','DevOps','Infrastructure operations'],'alumniOf':{'@type':'CollegeOrUniversity','name':p['education'][0]['institution']}}
-    values={**{k:esc(v) for k,v in c.items()},'name':esc(p['name']),'title':esc(p['title']),'it_years':p['it_years'],'devops_years':p['devops_years'],'hero_summary':esc(p['hero_summary']),'specialisms':' · '.join(map(esc,p['specialisms'])),'page_title':esc(p['name']+' | '+p['title']),'description':esc(p['meta']['description']),'navigation':nav,'structured_data':json.dumps(person,ensure_ascii=False).replace('<','\\u003c'),'about':''.join('<p>'+esc(a)+'</p>' for a in p['about']),'expertise':expertise,'proficiency_legend':legend,'proficiency_label':esc(p['proficiency']['label']),'experience':experience,'projects':projects,'institution':esc(p['education'][0]['institution']),'education':education,'languages':''.join('<div><dt>'+esc(l['name'])+'</dt><dd>'+esc(l['level'])+'</dd></div>' for l in p['languages'])}
+    about_facts=''.join(f'<div class="overview-fact">{ui_icon(fact["icon"],"fact-icon")}<div><strong>{esc(fact["value"])}</strong><span>{esc(fact["label"])}</span></div></div>' for fact in p['about_overview']['facts'])
+    focus_list='<ul class="focus-list">'+''.join('<li>'+esc(focus)+'</li>' for focus in p['about_overview']['focus'])+'</ul>'
+    about_steps=''
+    for i,(title,paragraph) in enumerate(zip(p['about_overview']['headings'],p['about'])):
+        about_steps+=f'<article class="about-step"><span class="step-number" aria-hidden="true">{i+1:02d}</span>{ui_icon(["cloud","layers","chart","target"][i],"step-icon")}<div><h3>{esc(title)}</h3><p>{esc(paragraph)}</p></div></article>'
+    education=''
+    for degree in p['education']:
+        labels='<ul class="degree-tags">'+''.join('<li>'+esc(tag)+'</li>' for tag in degree['tags'])+'</ul>'
+        education+=f'<article class="education-entry"><p class="education-dates">{esc(degree["dates"])}</p><span class="education-dot" aria-hidden="true"></span><div class="degree-content"><h4>{esc(degree["qualification"])}</h4><p class="degree-field">{esc(degree["field"])}</p><p class="degree-institution">{esc(degree["institution"])}</p>{labels}</div></article>'
+    languages=''
+    for language in p['languages']:
+        dots='<span class="language-dots" aria-hidden="true">'+''.join('<i class="'+('filled' if i<language['visual_dots'] else '')+'"></i>' for i in range(5))+'</span>'
+        flag='<span class="language-flag flag-ua" aria-hidden="true"></span>' if language['flag']=='ukrainian' else '<span class="language-flag" aria-hidden="true"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#1b4599"/><path d="m0 0 60 60M0 60 60 0" stroke="white" stroke-width="13"/><path d="m0 0 60 60M0 60 60 0" stroke="#dc3045" stroke-width="5"/><path d="M30 0v60M0 30h60" stroke="white" stroke-width="21"/><path d="M30 0v60M0 30h60" stroke="#dc3045" stroke-width="12"/></svg></span>'
+        languages+=f'<div class="language-entry">{flag}<div class="language-copy"><h4>{esc(language["name"])}</h4><p>{esc(language["description"])}</p></div>{dots}<p class="language-level">{esc(language["level"])}</p></div>'
+    person={'@context':'https://schema.org','@type':'Person','name':p['name'],'jobTitle':p['title'],'url':c['website'],'email':'mailto:'+c['email'],'telephone':c['tel'],'sameAs':[c['github'],c['telegram']],'knowsAbout':['AWS','Kubernetes','Terraform','DevOps','Infrastructure operations'],'alumniOf':[{'@type':'CollegeOrUniversity','name':name} for name in dict.fromkeys(degree['institution'] for degree in p['education'])]}
+    values={**{k:esc(v) for k,v in c.items()},'name':esc(p['name']),'title':esc(p['title']),'it_years':p['it_years'],'devops_years':p['devops_years'],'hero_summary':esc(p['hero_summary']),'specialisms':' · '.join(map(esc,p['specialisms'])),'page_title':esc(p['name']+' | '+p['title']),'description':esc(p['meta']['description']),'navigation':nav,'structured_data':json.dumps(person,ensure_ascii=False).replace('<','\\u003c'),'about_intro':esc(p['about_overview']['intro']),'about_facts':about_facts,'about_focus':focus_list,'about_steps':about_steps,'profile_icon':ui_icon('person','reference-icon'),'education_icon':ui_icon('graduation','reference-icon'),'cap_icon':ui_icon('graduation','panel-icon'),'language_icon':ui_icon('language','panel-icon'),'section_orbits':orbits(),'expertise':expertise,'proficiency_legend':legend,'proficiency_label':esc(p['proficiency']['label']),'experience':experience,'projects':projects,'institution':esc(p['education'][0]['institution']),'education':education,'languages':languages}
     template=(ROOT/'templates/index.html').read_text()
     for key,value in values.items():template=template.replace('{{'+key+'}}',value)
     assert '{{' not in template,'Unresolved template variable'

@@ -8,7 +8,8 @@ A static, accessible professional CV with detailed career information, a nine-ca
 ## Content and source
 
 - `data/profile.json`: candidate information, contacts, dates, detailed website content and selected PDF content. Edit professional information here.
-- `templates/index.html`: semantic page structure.
+- `templates/index.html`: semantic page structure, reference-based professional overview and academic/language panels.
+- `scripts/visuals.py`: code-native decorative icons for those panels.
 - `site/styles.css`, `site/app.js`: responsive design, navigation and optional motion.
 - `site/assets`: authentic portrait, self-hosted Inter font and its license, favicon, generated social card and self-hosted technology logos. Icon provenance is recorded in `site/assets/skills/ATTRIBUTION.txt`.
 - `scripts/build.py`: generates the website, metadata, sitemap, robots file and social image.
@@ -39,7 +40,7 @@ Open http://localhost:8000/. Opening `site/index.html` directly also shows the C
 
 ## GitHub Pages
 
-GitHub Actions builds from `data/profile.json`, validates the generated content and resume, and runs a Chromium/Firefox/WebKit matrix with axe accessibility checks. UI tests cover overflow and text clipping, mobile menus, orientation, live resizing, sticky navigation, 44px primary touch targets and actual PDF downloads. Content regression checks prevent location and the old senior-specific headline from reappearing and verify primary telephone and WhatsApp/Viber links. Matrix checks verify all reference skill names, levels and icon assets. Only a passing main-branch build can publish the `site/` artifact. Pull requests run the same checks without deploying. Pages uses GitHub Actions as its build source.
+GitHub Actions builds from `data/profile.json`, validates the generated content and resume, and runs a Chromium/Firefox/WebKit matrix with axe accessibility checks. UI tests cover overflow and text clipping, mobile menus, orientation, live resizing, sticky navigation, 44px primary touch targets and actual PDF downloads. Content regression checks prevent location and the old senior-specific headline from reappearing and verify primary telephone and WhatsApp/Viber links. Matrix checks verify all reference skill names, levels and icon assets. Profile checks verify the structured overview, all four qualifications and institutions, language levels and portrait proportions/resolution. Only a passing main-branch build can publish the `site/` artifact. Pull requests run the same checks without deploying. Pages uses GitHub Actions as its build source.
 
 `site/build-info.json` records the deployed source commit. The Pages artifact contains only the static website, its assets and the resume. Build tools and source data are not served as website files.
 

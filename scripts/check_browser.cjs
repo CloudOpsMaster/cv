@@ -59,6 +59,23 @@ async function checkLayout(page, label) {
       assert(!/Moldova|\bLocation\b|Senior DevOps|Infrastructure Operations \| Technical Leadership \| Cloud & Platform Engineering/i.test(await page.locator('body').innerText()),'Removed profile claims must stay absent');
       assert.equal(await page.locator('.experience-entry').count(),7);
       assert.equal(await page.locator('.expertise-card').count(),profile.skills.length);
+      assert.equal(await page.locator('.about-step').count(),profile.about.length,'Structured professional overview');
+      assert.deepEqual(await page.locator('.about-step p').allTextContents(),profile.about,'Professional overview content preserved');
+      assert.equal(await page.locator('.overview-fact').count(),4);
+      assert.equal(await page.locator('.education-entry').count(),profile.education.length,'Every qualification visible');
+      assert.deepEqual(await page.locator('.degree-field').allTextContents(),profile.education.map(degree=>degree.field));
+      assert.deepEqual(await page.locator('.degree-institution').allTextContents(),profile.education.map(degree=>degree.institution));
+      assert.deepEqual(await page.locator('.language-level').allTextContents(),profile.languages.map(language=>language.level));
+      const portrait=await page.locator('.portrait-wrap img').evaluate(img=>{
+        const box=img.getBoundingClientRect();return {width:box.width,height:box.height,natural:img.naturalWidth,fit:getComputedStyle(img).objectFit};
+      });
+      assert(Math.abs(portrait.width-portrait.height)<1,'Portrait remains square');
+      assert(portrait.width<=portrait.natural+1,'Portrait CSS size does not exceed source resolution');
+      assert.equal(portrait.fit,'cover');
+      if([390,1440].includes(width)) {
+        for(const section of ['about','education'])await page.locator('#'+section).screenshot({path:path.join(root,'qa',`${engine}-${section}-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
+      }
+
       assert.equal(await page.locator('.proficiency-card').count(),profile.skills.length);
       assert.deepEqual(await page.locator('.skill-name').allTextContents(),profile.skills.flatMap(skill=>skill.items.map(item=>item.name)),'Matrix preserves reference technologies');
       assert.deepEqual(await page.locator('.skill-level').allTextContents(),profile.skills.flatMap(skill=>skill.items.map(item=>item.level)),'Matrix preserves self-assessed reference levels');
@@ -94,7 +111,7 @@ async function checkLayout(page, label) {
           await page.waitForFunction(hash=>location.hash===hash,'#'+id);
         }
       }
-      for(const id of ['about','experience','contact']) {
+      for(const id of ['about','experience','education','contact']) {
         await page.goto(url+'#'+id);
         await page.waitForFunction(section=>{
           const target=document.getElementById(section).getBoundingClientRect();
@@ -130,7 +147,7 @@ async function checkLayout(page, label) {
     await page.waitForFunction(()=>document.querySelector('#mobile-navigation').hidden);
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
-    const widths=[...new Set([320,360,375,390,430,600,639,640,641,699,700,701,766,767,768,769,899,900,901,979,980,981,1023,1024,1025,1159,1160,1161,1199,1200,1201,1279,1280,1281,1349,1350,1351,1440,1920,2560,...Array.from({length:71},(_,i)=>320+i*32)])].sort((a,b)=>a-b);
+    const widths=[...new Set([320,360,375,390,430,600,638,639,640,641,699,700,701,766,767,768,769,899,900,901,979,980,981,1023,1024,1025,1159,1160,1161,1199,1200,1201,1279,1280,1281,1349,1350,1351,1440,1920,2560,...Array.from({length:71},(_,i)=>320+i*32)])].sort((a,b)=>a-b);
     for(const width of widths) {
       await page.setViewportSize({width,height:width<768?844:900});
       await checkLayout(page,`${engine} fluid width ${width}`);

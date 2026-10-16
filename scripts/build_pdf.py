@@ -31,9 +31,9 @@ def build_pdf():
         kind=' ('+r['employment_type']+')' if r['employment_type'] else ''
         parts=[P(e(r['company']+' | '+r['title']+kind),role_style),P(e(r['dates']),small)]
         parts.extend(P('• '+e(b),bullet) for b in r['pdf_bullets'])
-        parts.append(Spacer(1,5))
+        parts.append(Spacer(1,2))
         return KeepTogether(parts)
-    story=[P(e(p['name']),ParagraphStyle('name',fontName='CV-Bold',fontSize=23,leading=29,textColor=NAVY,spaceAfter=5)),P(e(p['title']),style('title',11,15,spaceAfter=6)),P('<link href="'+e(c['website'])+'" color="#2563EB">'+e(c['website'])+'</link>',style('website',9.5,13,spaceAfter=5)),P('<link href="tel:'+c['tel']+'">'+e(c['phone'])+'</link> | <link href="'+e(c['whatsapp'])+'">WhatsApp</link> | <link href="'+e(c['viber'])+'">Viber</link> | <link href="mailto:'+e(c['email'])+'">'+e(c['email'])+'</link>',small),P('<link href="'+e(c['github'])+'">'+e(c['github'])+'</link> | <link href="'+e(c['telegram'])+'">'+e(c['telegram'])+'</link>',small),heading('Professional summary'),P(e(p['pdf_summary'])),heading('Skills & Technology Matrix')]
+    story=[P(e(p['name']),ParagraphStyle('name',fontName='CV-Bold',fontSize=23,leading=29,textColor=NAVY,spaceAfter=5)),P(e(p['title']),style('title',11,15,spaceAfter=6)),P('<link href="'+e(c['website'])+'" color="#2563EB">'+e(c['website'])+'</link>',style('website',9.5,13,spaceAfter=5)),P('<link href="tel:'+c['tel']+'">'+e(c['phone'])+'</link> | <link href="'+e(c['whatsapp'])+'">WhatsApp</link> | <link href="'+e(c['viber'])+'">Viber</link> | <link href="mailto:'+e(c['email'])+'">'+e(c['email'])+'</link>',small),P('<link href="'+e(c['github'])+'">'+e(c['github'])+'</link> | <link href="'+e(c['telegram'])+'">'+e(c['telegram'])+'</link>',small),heading('Professional summary'),P(e(p['pdf_summary'])),P('<font color="#2563EB"><b>Core focus:</b></font> '+e(' · '.join(p['about_overview']['focus'])),style('focus',8.4,11.5,spaceAfter=3)),heading('Skills & Technology Matrix')]
     story.append(P('Self-assessed proficiency: Expert · Advanced · Intermediate · Basic',style('legend',8,10,spaceAfter=6)))
     matrix_style=style('matrix',8.4,11.3)
     matrix_label=ParagraphStyle('matrix-label',parent=matrix_style,fontName='CV-Bold')
@@ -54,12 +54,25 @@ def build_pdf():
     story.append(matrix)
     story.append(heading('Professional experience'))
     for r in p['roles'][:2]:story.append(role(r))
-    story+=[PageBreak(),P(e(p['name'])+' | Professional experience continued',style('continued',10,15,spaceAfter=9))]
+    story+=[PageBreak(),P(e(p['name'])+' | Professional experience continued | <link href="'+e(c['github'])+'" color="#2563EB">GitHub</link>',style('continued',10,15,spaceAfter=9))]
     for r in p['roles'][2:]:story.append(role(r))
-    story+=[heading('Selected project'),P('<b>PipeForge</b> — '+e(p['pdf_project_summary'])),P('<link href="'+e(p['projects'][0]['url'])+'" color="#2563EB">'+e(p['projects'][0]['url'])+'</link>',small),heading('Education'),P(e(p['education'][0]['institution']),role_style)]
+    story+=[heading('Selected project'),P('<b>PipeForge</b> — '+e(p['pdf_project_summary'])),P('<link href="'+e(p['projects'][0]['url'])+'" color="#2563EB">'+e(p['projects'][0]['url'])+'</link>',small),heading('Education')]
+    degree_style=style('degree',8.4,11)
+    dates_style=style('degree-dates',8.4,11)
+    education_rows=[]
     for degree in p['education']:
-        story.append(P(e(degree['qualification']+', '+degree['field']+' | '+degree['dates']),small))
-    story+=[heading('Languages'),P(' | '.join(e(l['name']+' — '+l['level']) for l in p['languages'])),P('<b>GitHub:</b> <link href="'+e(c['github'])+'">'+e(c['github'])+'</link>',small)]
+        details='<b>'+e(degree['qualification']+' — '+degree['field'])+'</b><br/><font color="#52647A">'+e(degree['institution'])+'</font>'
+        education_rows.append([P('<font color="#2563EB">'+e(degree['dates'])+'</font>',dates_style),P(details,degree_style)])
+    academic_table=Table(education_rows,colWidths=[69,428],hAlign='LEFT')
+    academic_table.setStyle(TableStyle([
+        ('FONTNAME',(0,0),(-1,-1),'CV'),('VALIGN',(0,0),(-1,-1),'TOP'),
+        ('LEFTPADDING',(0,0),(0,-1),0),('RIGHTPADDING',(0,0),(0,-1),7),
+        ('LEFTPADDING',(1,0),(1,-1),10),('RIGHTPADDING',(1,0),(1,-1),0),
+        ('TOPPADDING',(0,0),(-1,-1),2),('BOTTOMPADDING',(0,0),(-1,-1),3),
+        ('LINEAFTER',(0,0),(0,-1),.7,colors.HexColor('#c8dcfa'))
+    ]))
+    story.append(academic_table)
+    story+=[heading('Languages'),P(' | '.join(e(l['name']+' — '+l['level']) for l in p['languages']))]
     def footer(cv,doc):
         cv.saveState();cv.setStrokeColor(colors.HexColor('#E2E8F0'));cv.setLineWidth(.5);cv.line(43,38,A4[0]-43,38)
         cv.setFillColor(MUTED);cv.setFont('CV',8)
