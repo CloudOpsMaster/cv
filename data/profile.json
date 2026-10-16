@@ -1,0 +1,408 @@
+{
+  "name": "Vadym Pyrozhenko",
+  "title": "Senior DevOps & Cloud Infrastructure Engineer",
+  "positioning": "Infrastructure Operations | Technical Leadership | Cloud & Platform Engineering",
+  "specialisms": [
+    "Cloud Infrastructure",
+    "DevOps",
+    "Kubernetes",
+    "Automation",
+    "Technical Leadership"
+  ],
+  "it_years": "12+",
+  "devops_years": "7+",
+  "contact": {
+    "location": "Moldova",
+    "phone": "+373 61 039 001",
+    "tel": "+37361039001",
+    "email": "cloudopsmaster.tech@gmail.com",
+    "github": "https://github.com/CloudOpsMaster",
+    "telegram": "https://t.me/CloudOpsMaster",
+    "website": "https://cloudopsmaster.github.io/cv/"
+  },
+  "hero_summary": "IT professional with over 12 years of experience, including more than 7 years in DevOps and cloud infrastructure engineering. Experienced in designing, automating and maintaining production environments, improving CI/CD processes and supporting reliable enterprise platforms. Combines hands-on infrastructure expertise with technical coordination and team leadership experience.",
+  "pdf_summary": "Senior DevOps and cloud infrastructure engineer with 12+ years in IT, including 7+ years in DevOps and cloud infrastructure. Experience spans AWS production environments, Kubernetes, infrastructure as code, CI/CD and operational reliability. Previously led systems administration teams and coordinated enterprise infrastructure work. Combines hands-on automation and production troubleshooting with cross-functional collaboration, technical documentation and release support. Background includes enterprise IT and financial services, with a focus on maintainable infrastructure and reliable engineering delivery.",
+  "about": [
+    "I am a DevOps and cloud infrastructure professional with more than 12 years of experience in IT, including over 7 years in DevOps, infrastructure automation and production environments. My background connects traditional systems administration with cloud engineering, container orchestration and operational reliability.",
+    "I have worked in enterprise IT and financial services, collaborating with development, operations and engineering teams supporting business-critical services. My core toolkit includes AWS, Kubernetes, Terraform, Ansible, Linux, Docker and CI/CD platforms such as Jenkins, GitLab CI/CD and GitHub Actions. Monitoring and troubleshooting are part of the same operational responsibility.",
+    "Before specializing in DevOps, I led systems administration engineers and coordinated infrastructure work with vendors and contractors. That experience informs how I approach capacity planning, documentation, service continuity and the practical needs of the teams who run and use infrastructure.",
+    "I am interested in cloud and platform engineering, infrastructure operations, technical delivery and team leadership. I value clear communication, repeatable automation and maintainable systems, with engineering choices that support operational and business objectives."
+  ],
+  "roles": [
+    {
+      "company": "GlobalLogic",
+      "title": "DevOps Engineer",
+      "dates": "May 2022 – Jun 2026",
+      "employment_type": "",
+      "context": "Customer engineering environments with established CI/CD and production release processes.",
+      "responsibilities": [
+        "Maintained CI/CD and release workflows across customer projects using Jenkins, GitLab CI, Gerrit, SonarQube and Spinnaker.",
+        "Automated infrastructure provisioning and operational tasks with Terraform, Ansible, Bash, Python and Groovy.",
+        "Worked with development teams to troubleshoot infrastructure, validate changes and support production releases.",
+        "Maintained infrastructure, deployment and operational documentation for engineering teams."
+      ],
+      "pdf_bullets": [
+        "Maintained CI/CD and release workflows across customer projects using Jenkins, GitLab CI, Gerrit, SonarQube and Spinnaker.",
+        "Automated infrastructure provisioning and operational tasks with Terraform, Ansible, Bash, Python and Groovy.",
+        "Worked with development teams to troubleshoot infrastructure, validate changes and support production releases."
+      ],
+      "technologies": [
+        "Jenkins",
+        "GitLab CI",
+        "Gerrit",
+        "SonarQube",
+        "Spinnaker",
+        "Terraform",
+        "Ansible",
+        "Bash",
+        "Python",
+        "Groovy"
+      ]
+    },
+    {
+      "company": "West Auto Hub",
+      "title": "DevOps Engineer",
+      "dates": "Sep 2025 – Jan 2026",
+      "employment_type": "Contract",
+      "context": "Linux application infrastructure supporting PHP/Laravel services.",
+      "responsibilities": [
+        "Maintained Linux infrastructure for PHP/Laravel services with Nginx, MySQL, Redis and Elasticsearch.",
+        "Supported deployments, monitoring, backups and incident troubleshooting."
+      ],
+      "pdf_bullets": [
+        "Maintained Linux infrastructure for PHP/Laravel services with Nginx, MySQL, Redis and Elasticsearch.",
+        "Supported deployments, monitoring, backups and incident troubleshooting."
+      ],
+      "technologies": [
+        "Linux",
+        "Nginx",
+        "MySQL",
+        "Redis",
+        "Elasticsearch",
+        "PHP/Laravel"
+      ]
+    },
+    {
+      "company": "Midcontract",
+      "title": "DevOps Engineer",
+      "dates": "Oct 2024 – Sep 2025",
+      "employment_type": "Part-time",
+      "context": "AWS production infrastructure, container deployments and delivery automation.",
+      "responsibilities": [
+        "Built AWS infrastructure for production workloads and automated provisioning with Terraform and Ansible.",
+        "Managed Kubernetes and Helm deployments and delivery workflows across GitHub, GitLab, Jenkins and TeamCity."
+      ],
+      "pdf_bullets": [
+        "Built AWS infrastructure for production workloads and automated provisioning with Terraform and Ansible.",
+        "Managed Kubernetes and Helm deployments and delivery workflows across GitHub, GitLab, Jenkins and TeamCity."
+      ],
+      "technologies": [
+        "AWS",
+        "Terraform",
+        "Ansible",
+        "Kubernetes",
+        "Helm",
+        "GitHub",
+        "GitLab",
+        "Jenkins",
+        "TeamCity"
+      ]
+    },
+    {
+      "company": "PrivatBank",
+      "title": "DevOps",
+      "dates": "Dec 2021 – Jul 2022",
+      "employment_type": "",
+      "context": "Cloud and container platform modernization, including the transition from OKD to Amazon EKS.",
+      "responsibilities": [
+        "Supported the migration of services from OKD to AWS EKS, including deployment validation.",
+        "Configured Linux, Nginx, networking, monitoring and Terraform infrastructure; automated CRM application and database deployments.",
+        "Investigated application and infrastructure issues with engineering teams during platform changes."
+      ],
+      "pdf_bullets": [
+        "Supported the migration of services from OKD to AWS EKS, including deployment validation.",
+        "Configured Linux, Nginx, networking, monitoring and Terraform infrastructure; automated CRM application and database deployments."
+      ],
+      "technologies": [
+        "AWS EKS",
+        "OKD",
+        "Terraform",
+        "Linux",
+        "Nginx",
+        "Networking",
+        "Monitoring"
+      ]
+    },
+    {
+      "company": "UAPAY",
+      "title": "Technical Integration Engineer",
+      "dates": "Aug 2020 – Dec 2021",
+      "employment_type": "",
+      "context": "Technical integration and onboarding for payment and financial services.",
+      "responsibilities": [
+        "Integrated customer infrastructure and financial services with company systems and supported technical onboarding.",
+        "Worked on payment monitoring, automated reporting, service deployment and integration documentation.",
+        "Coordinated integration issue resolution with internal engineering teams."
+      ],
+      "pdf_bullets": [
+        "Integrated customer infrastructure and financial services with company systems and supported technical onboarding.",
+        "Worked on payment monitoring, automated reporting, service deployment and integration documentation."
+      ],
+      "technologies": [
+        "Payment integrations",
+        "Monitoring",
+        "Deployment",
+        "Automated reporting"
+      ]
+    },
+    {
+      "company": "Namecheap Inc",
+      "title": "Site Reliability Engineer",
+      "dates": "Mar 2020 – Jun 2020",
+      "employment_type": "",
+      "context": "Production service reliability, incident investigation and operational automation.",
+      "responsibilities": [
+        "Supported production reliability through monitoring, incident response, performance analysis and root-cause investigation.",
+        "Automated recurring operational tasks and collaborated with engineers to resolve service issues."
+      ],
+      "pdf_bullets": [
+        "Supported production reliability through monitoring, incident response, performance analysis and root-cause investigation.",
+        "Automated recurring operational tasks and collaborated with engineers to resolve service issues."
+      ],
+      "technologies": [
+        "Monitoring",
+        "Incident response",
+        "Root-cause analysis",
+        "Automation"
+      ]
+    },
+    {
+      "company": "Fozzy Group",
+      "title": "Team Lead System Administrator",
+      "dates": "Sep 2015 – Mar 2020",
+      "employment_type": "",
+      "context": "Enterprise IT operations, data center infrastructure and systems administration team leadership.",
+      "responsibilities": [
+        "Led infrastructure engineers and coordinated vendors and contractors for enterprise IT operations.",
+        "Managed data center infrastructure, VMware/Hyper-V, Windows Server, SQL systems, networking and monitoring.",
+        "Planned infrastructure work, supported budgeting and capacity planning, and reported operational status."
+      ],
+      "pdf_bullets": [
+        "Led infrastructure engineers and coordinated vendors and contractors for enterprise IT operations.",
+        "Managed data center infrastructure, VMware/Hyper-V, Windows Server, SQL systems, networking and monitoring.",
+        "Planned infrastructure work, supported budgeting and capacity planning, and reported operational status."
+      ],
+      "technologies": [
+        "VMware",
+        "Hyper-V",
+        "Windows Server",
+        "SQL",
+        "Networking",
+        "Monitoring"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Cloud platforms",
+      "focus": "AWS production infrastructure",
+      "description": "Provisioning and maintaining cloud resources for production workloads, with networking, access control and deployment requirements considered together. AWS is the primary platform; Azure and GCP are additional cloud exposure.",
+      "technologies": [
+        "AWS EC2",
+        "VPC",
+        "IAM",
+        "S3",
+        "EKS",
+        "RDS",
+        "ALB / NLB",
+        "Cloud networking"
+      ]
+    },
+    {
+      "name": "Containers & orchestration",
+      "focus": "Deployment and platform operations",
+      "description": "Deploying and operating containerized applications with Kubernetes and Helm, supporting production workloads and investigating deployment issues. Experience includes an OKD-to-EKS migration.",
+      "technologies": [
+        "Kubernetes",
+        "Amazon EKS",
+        "Docker",
+        "Helm",
+        "OKD"
+      ]
+    },
+    {
+      "name": "Infrastructure as code & automation",
+      "focus": "Repeatable infrastructure workflows",
+      "description": "Infrastructure provisioning, configuration management and operational automation with Terraform and Ansible. Bash and Python support practical engineering workflows and recurring operational tasks.",
+      "technologies": [
+        "Terraform",
+        "Ansible",
+        "Bash",
+        "Python",
+        "Groovy",
+        "PowerShell"
+      ]
+    },
+    {
+      "name": "CI/CD & engineering delivery",
+      "focus": "From build to production release",
+      "description": "Maintaining build and deployment pipelines, release workflows and quality checks across engineering teams. Supporting delivery changes, deployment validation and operational documentation.",
+      "technologies": [
+        "Jenkins",
+        "GitLab CI/CD",
+        "GitHub Actions",
+        "TeamCity",
+        "Spinnaker",
+        "Gerrit",
+        "SonarQube"
+      ]
+    },
+    {
+      "name": "Monitoring & reliability",
+      "focus": "Visibility into production systems",
+      "description": "Infrastructure monitoring, log analysis and alerting to support incident investigation and production troubleshooting. Experience with performance analysis and root-cause investigation.",
+      "technologies": [
+        "Prometheus",
+        "Grafana",
+        "Alertmanager",
+        "ELK",
+        "Zabbix"
+      ]
+    },
+    {
+      "name": "Systems & databases",
+      "focus": "The operational foundation",
+      "description": "Linux and Windows Server administration, networking and virtualized enterprise environments. Application infrastructure experience includes relational databases, caches and search services.",
+      "technologies": [
+        "Linux",
+        "Windows Server",
+        "VMware",
+        "Hyper-V",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Elasticsearch"
+      ]
+    },
+    {
+      "name": "Operations & leadership",
+      "focus": "Technical execution and coordination",
+      "description": "Leading infrastructure engineers, coordinating vendors and working across development and operations teams. Planning infrastructure work, supporting budgeting and capacity planning, and documenting operational procedures.",
+      "technologies": [
+        "Infrastructure operations",
+        "Team leadership",
+        "Technical coordination",
+        "Incident investigation",
+        "Release support",
+        "Technical documentation"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "PipeForge",
+      "type": "Open-source project",
+      "description": "A reusable CI/CD framework for engineering teams that want one source of build logic across local execution, GitHub Actions, GitLab CI and Jenkins. Python executes jobs defined in YAML with explicit dependencies, reports and resumable runs.",
+      "contribution": "Public engineering work demonstrating reusable automation, pipeline dependency handling and a practical approach to reproducing CI behavior locally.",
+      "technologies": [
+        "Python",
+        "YAML",
+        "GitHub Actions",
+        "GitLab CI",
+        "Jenkins"
+      ],
+      "url": "https://github.com/CloudOpsMaster/pipeforge"
+    },
+    {
+      "name": "Kubernetes & cloud infrastructure",
+      "type": "Professional capability",
+      "description": "AWS production infrastructure and container platform work across Midcontract and PrivatBank, covering Terraform provisioning, Ansible automation and Kubernetes/Helm deployments.",
+      "contribution": "Built and automated AWS infrastructure at Midcontract; supported the OKD-to-EKS migration and deployment validation at PrivatBank.",
+      "technologies": [
+        "AWS EKS",
+        "Terraform",
+        "Ansible",
+        "Kubernetes",
+        "Helm"
+      ],
+      "url": null
+    },
+    {
+      "name": "CI/CD & operational reliability",
+      "type": "Professional capability",
+      "description": "Delivery automation and operational support across customer engineering environments: build and release workflows, infrastructure changes, monitoring and troubleshooting.",
+      "contribution": "Maintained CI/CD and release automation at GlobalLogic; supported incident investigation and recurring operational automation at Namecheap.",
+      "technologies": [
+        "Jenkins",
+        "GitLab CI",
+        "Spinnaker",
+        "Monitoring",
+        "Automation"
+      ],
+      "url": null
+    }
+  ],
+  "education": [
+    {
+      "institution": "Kharkiv National University of Radio Electronics",
+      "qualification": "Master’s degree",
+      "field": "Information Management Systems and Technologies",
+      "dates": "2022 – 2024",
+      "graduation_year": "2024"
+    },
+    {
+      "institution": "Kharkiv National University of Radio Electronics",
+      "qualification": "Master’s degree",
+      "field": "Financial and Economic Security",
+      "dates": "2011 – 2013",
+      "graduation_year": "2013"
+    },
+    {
+      "institution": "Kharkiv National University of Radio Electronics",
+      "qualification": "Master’s degree",
+      "field": "Information Security",
+      "dates": "2007 – 2013",
+      "graduation_year": "2013"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Ukrainian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "B2–C1"
+    }
+  ],
+  "meta": {
+    "description": "Professional CV of Vadym Pyrozhenko — Senior DevOps and Cloud Infrastructure Engineer with 12+ years of IT experience, specializing in AWS, Kubernetes, Terraform, CI/CD and infrastructure operations."
+  },
+  "pdf_skills": [
+    {
+      "label": "Cloud",
+      "text": "AWS: EC2, S3, EKS, VPC, IAM, RDS, ALB/NLB; additional exposure to Azure, GCP"
+    },
+    {
+      "label": "Containers & IaC",
+      "text": "Kubernetes, Docker, Helm, Terraform, Ansible"
+    },
+    {
+      "label": "CI/CD",
+      "text": "Jenkins, GitLab CI/CD, GitHub Actions, TeamCity, Spinnaker, Gerrit, SonarQube"
+    },
+    {
+      "label": "Reliability",
+      "text": "Prometheus, Grafana, Alertmanager, ELK, Zabbix; incident investigation"
+    },
+    {
+      "label": "Systems & automation",
+      "text": "Linux, Windows Server, networking, VMware/Hyper-V, Bash, Python, Groovy"
+    },
+    {
+      "label": "Operations",
+      "text": "Infrastructure coordination, team leadership, production support, technical delivery"
+    }
+  ],
+  "pdf_project_summary": "Python/YAML build logic shared across local execution, GitHub Actions, GitLab CI and Jenkins; dependency handling, execution reports and resumable runs."
+}
