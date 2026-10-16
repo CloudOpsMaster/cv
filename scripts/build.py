@@ -13,7 +13,21 @@ def tags(values):
 def build_site():
     p=load_profile();c=p['contact'];site=ROOT/'site';site.mkdir(exist_ok=True)
     nav=''.join(f'<a href="#{x.lower()}">{x}</a>' for x in ['About','Expertise','Experience','Projects','Education','Contact'])
-    expertise=''.join(f'<article class="expertise-card"><h3>{esc(s["name"])}</h3><p class="expertise-focus">{esc(s["focus"])}</p><p class="expertise-description">{esc(s["description"])}</p>{tags(s["technologies"])}</article>' for s in p['skills'])
+    themes=['cloud','containers','automation','delivery','observability','systems','leadership']
+    icons=[
+        '<path d="M7 18H6a4 4 0 0 1-.5-8A6.5 6.5 0 0 1 18 8a5 5 0 0 1 0 10h-1"/><path d="M9 16l3-3 3 3m-3-3v8"/>',
+        '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM4 7.5l8 4.5 8-4.5M12 12v9M8 5.2l8 4.5"/>',
+        '<path d="M8 4H6v6l-3 2 3 2v6h2M16 4h2v6l3 2-3 2v6h-2M13 8l-2 8"/>',
+        '<circle cx="6" cy="5" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10M8 15c7 0 10-2 10-6"/>',
+        '<path d="M3 12h4l3-7 4 14 3-7h4"/>',
+        '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 4 16 4 16 0V5M4 12v7c0 4 16 4 16 0v-7"/>',
+        '<circle cx="9" cy="7" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 4a3 3 0 0 1 0 6M17 14a5 5 0 0 1 4 4v2"/>'
+    ]
+    expertise=''
+    for i,skill in enumerate(p['skills']):
+        icon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+icons[i]+'</svg>'
+        cells='<ul class="expertise-technologies" aria-label="'+esc(skill['name'])+' technologies">'+''.join('<li>'+esc(t)+'</li>' for t in skill['technologies'])+'</ul>'
+        expertise+=f'<article class="expertise-card matrix-row theme-{themes[i]}" role="listitem"><div class="matrix-category"><span class="matrix-icon">{icon}</span><div><h3>{esc(skill["name"])}</h3><p class="expertise-focus">{esc(skill["focus"])}</p></div></div><div class="matrix-content">{cells}<details class="expertise-detail"><summary>Practical experience</summary><p class="expertise-description">{esc(skill["description"])}</p></details></div></article>'
     experience=''
     for r in p['roles']:
         kind=f'<span class="employment-type">{esc(r["employment_type"])}</span>' if r['employment_type'] else ''
