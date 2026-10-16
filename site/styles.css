@@ -58,3 +58,74 @@
 @media(max-width:639px){.skills-section{width:calc(100% - 40px);padding-block:32px}.proficiency-matrix{grid-template-columns:1fr;gap:14px}.skills-section h2{font-size:29px;letter-spacing:-.8px;margin-bottom:14px}.expertise-introduction{gap:18px;margin-bottom:20px}.expertise-highlights{font-size:12px;gap:7px 15px}.proficiency-legend{padding:17px}.legend-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 13px}.legend-item strong{font-size:12px}.legend-item p{font-size:11px}.proficiency-card{padding:21px 18px}.proficiency-card-heading{min-height:0;margin-bottom:16px;grid-template-columns:48px minmax(0,1fr)}.proficiency-card h3{font-size:18px}.proficiency-card-heading p{font-size:14px}.skill-entry{grid-template-columns:25px minmax(0,1fr) 52px 82px;gap:9px;min-height:43px}.skill-name{font-size:13px}.skill-level{font-size:12px}.contact-bottom{align-items:flex-start;flex-direction:column;gap:15px}.contact-bottom p{font-size:13px}}
 @media(max-width:359px){.proficiency-card{padding-inline:14px}.skill-entry{grid-template-columns:22px minmax(0,1fr) 36px 73px;gap:6px}.skill-name{font-size:12px}.skill-level{font-size:10.5px}.technology-icon{width:22px;height:22px}.proficiency-card h3{font-size:16px}.proficiency-card-heading p{font-size:13px}.legend-swatch{width:20px;flex-basis:20px}.legend-item{gap:6px}}
 @media print{.proficiency-matrix{grid-template-columns:repeat(2,minmax(0,1fr))}.proficiency-card{break-inside:avoid;box-shadow:none}.skills-section{width:100%}.expertise-introduction{display:block}.proficiency-legend{margin-block:15px}}
+/* Profile and academic panels follow the supplied 123.png / edication.png references. */
+.reference-section{position:relative}
+.reference-heading{display:flex;align-items:flex-start;gap:20px;position:relative;margin-bottom:30px;isolation:isolate;min-width:0}
+.reference-heading>div:last-child{min-width:0;position:relative;z-index:1}
+.reference-icon{display:flex;align-items:center;justify-content:center;flex:0 0 60px;width:60px;height:60px;border-radius:15px;color:#0878f6;background:linear-gradient(130deg,#e1efff,#edf6ff)}
+.reference-icon svg{width:36px;height:36px}
+.reference-heading .eyebrow{font-size:11px;letter-spacing:1.5px;margin-bottom:8px}
+.reference-heading h2{font-size:34px;line-height:1.25;letter-spacing:-1.1px;margin-bottom:10px}
+.reference-intro{font-size:16px;line-height:1.8;color:#52647a;max-width:730px}
+.section-orbits{position:absolute;right:0;top:-15px;width:260px;height:145px;pointer-events:none;z-index:-1;opacity:.65;overflow:hidden}
+.orbit-globe{position:absolute;right:16px;top:10px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#e8f2ff,#cfdefb66 65%,#eff7ff22)}
+.orbit-ring{position:absolute;right:-25px;top:12px;width:260px;height:85px;border:1px solid #d6e7fd;border-radius:50%;transform:rotate(-16deg)}
+.orbit-ring.ring-two{transform:rotate(20deg);top:36px;right:-40px}
+.section-orbits i{position:absolute;width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,#edf6ff,#bcd4fb);top:25px;right:164px}
+.section-orbits i:nth-last-child(2){top:80px;right:10px;width:17px;height:17px}.section-orbits i:last-child{top:115px;right:95px;width:8px;height:8px}
+.about-layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:30px;align-items:start}
+.overview-card{background:linear-gradient(145deg,#fff,#fbfdff);border:1px solid #e3edfa;border-radius:13px;padding:24px 20px;box-shadow:0 5px 20px #2563eb04}
+.overview-fact{display:flex;align-items:center;gap:14px;margin-bottom:22px;min-width:0}
+.fact-icon,.step-icon,.panel-icon{display:flex;align-items:center;justify-content:center;color:#0878f6;background:linear-gradient(130deg,#e5f1ff,#eaf5ff);border-radius:11px;flex:0 0 44px;width:44px;height:44px}
+.fact-icon svg,.step-icon svg{width:27px;height:27px}
+.overview-fact strong{font-size:19px;line-height:1.4;letter-spacing:-.5px;display:block;font-weight:650}
+.overview-fact span:not(.fact-icon){font-size:13px;color:var(--muted);line-height:1.8;display:block;margin-top:3px}
+.core-focus{border-top:1px solid var(--border);padding-top:18px;margin-top:4px}
+.core-focus h3{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:13px}
+.focus-list{list-style:none;padding:0;display:grid;gap:12px}
+.focus-list li{font-size:13px;line-height:1.75;color:var(--muted);padding-left:23px;position:relative}
+.focus-list li::before{content:'✓';display:flex;align-items:center;justify-content:center;position:absolute;left:0;top:3px;width:15px;height:15px;color:white;background:#2563eb;border-radius:50%;font-size:10px;font-weight:600}
+.about-steps{display:grid;gap:25px;min-width:0}
+.about-step{display:grid;grid-template-columns:34px 42px minmax(0,1fr);gap:12px;position:relative;min-width:0}
+.about-step:not(:last-child)::after{content:'';position:absolute;left:16px;top:39px;bottom:-25px;border-left:1px solid #deebfb;z-index:0}
+.about-step:not(:last-child)::before{content:'';position:absolute;width:5px;height:5px;background:#72a9ee;border-radius:50%;left:14px;top:58px;z-index:1}
+.step-number{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;font-size:14px;font-weight:600;color:#1d5db3;background:#edf5ff;position:relative;z-index:1}
+.step-icon{width:42px;height:42px;flex-basis:42px}
+.about-step h3{font-size:18px;line-height:1.5;font-weight:600;letter-spacing:-.4px;margin-bottom:7px}
+.about-step p{font-size:15px;line-height:1.9;color:var(--muted)}
+.education-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px;align-items:start}
+.academic-panel,.languages-panel{background:#fff;border:1px solid #dfeafa;border-radius:13px;padding:24px;box-shadow:0 5px 20px #2563eb03;min-width:0}
+.panel-title{display:flex;align-items:center;gap:12px;font-size:21px;font-weight:650;line-height:1.5;letter-spacing:-.4px;margin-bottom:22px}
+.panel-icon{width:35px;height:35px;flex-basis:35px;border-radius:9px}.panel-icon svg{width:25px;height:25px}
+.education-timeline{position:relative}
+.education-entry{display:grid;grid-template-columns:90px 13px minmax(0,1fr);column-gap:12px;position:relative;padding-bottom:23px;min-width:0}
+.education-entry:not(:last-child)::before{content:'';position:absolute;left:108px;top:12px;bottom:0;border-left:1px solid #d8e8fc}
+.education-entry:last-child{padding-bottom:0}
+.education-dates{font-size:12px;line-height:1.9;color:var(--muted);padding-top:1px;white-space:nowrap}
+.education-dot{position:relative;z-index:1;display:block;width:10px;height:10px;border-radius:50%;background:#0878f6;border:2px solid white;box-shadow:0 0 0 3px #e2f0ff;margin-top:7px}
+.degree-content{min-width:0;padding-bottom:18px;border-bottom:1px solid #edf2fa}
+.education-entry:last-child .degree-content{border-bottom:0;padding-bottom:0}
+.degree-content h4{font-size:15px;line-height:1.7;font-weight:650;margin:0}
+.degree-field{font-size:15px;line-height:1.7;color:#31557d;margin-top:1px}
+.degree-institution{font-size:13px;line-height:1.8;color:var(--muted);margin-top:4px}
+.degree-tags{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 0;padding:0}
+.degree-tags li{font-size:11px;line-height:1.6;padding:4px 8px;border-radius:5px;color:#1d5db3;background:#eef5ff}
+.language-entry{display:grid;grid-template-columns:30px minmax(0,1fr);gap:9px 13px;align-items:center;padding:20px 0;border-bottom:1px solid #edf2fa;position:relative}
+.language-entry:first-child{padding-top:3px}.language-entry:last-child{border-bottom:0;padding-bottom:3px}
+.language-flag{width:29px;height:29px;border-radius:50%;overflow:hidden;display:block;box-shadow:0 1px 3px #14213d0e}.language-flag svg{width:100%;height:100%;display:block}.flag-ua{background:linear-gradient(#0069fa 50%,#ffda28 50%)}
+.language-copy h4{font-size:16px;line-height:1.6;font-weight:600;margin:0}.language-copy p{font-size:13px;color:var(--muted);line-height:1.8;margin-top:1px}
+.language-dots{grid-column:2;display:flex;gap:7px;margin-top:3px}.language-dots i{width:11px;height:11px;border-radius:50%;background:#d7e0ee}.language-dots i.filled{background:#0878f6}
+.language-level{position:absolute;right:0;bottom:19px;font-size:14px;color:#1d5db3;font-weight:500}.language-entry:last-child .language-level{bottom:2px}
+.portrait-wrap img{aspect-ratio:1;object-position:50% 50%;display:block}
+@media(min-width:1500px){.education-layout{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}}
+@media(max-width:1100px){.about-layout{grid-template-columns:225px minmax(0,1fr);gap:22px}.about-step{grid-template-columns:30px 38px minmax(0,1fr);gap:10px}.step-number{width:30px;height:32px}.step-icon{width:38px;height:38px}.about-step:not(:last-child)::after{left:14px}.about-step:not(:last-child)::before{left:12px}.academic-panel,.languages-panel{padding:20px}.education-layout{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:15px}.reference-heading h2{font-size:30px}}
+@media(max-width:767px){.reference-heading{gap:14px;margin-bottom:23px}.reference-icon{width:48px;height:48px;flex-basis:48px;border-radius:12px}.reference-icon svg{width:30px;height:30px}.reference-heading h2{font-size:26px;letter-spacing:-.7px;margin-bottom:9px}.reference-heading .eyebrow{font-size:9px;margin-bottom:6px}.reference-intro{font-size:15px;line-height:1.9}.section-orbits{display:none}.about-layout{grid-template-columns:1fr;gap:26px}.overview-card{padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px 15px}.overview-fact{margin:0;gap:10px;align-items:start}.fact-icon{width:36px;height:36px;flex-basis:36px;border-radius:9px}.fact-icon svg{width:23px;height:23px}.overview-fact strong{font-size:16px;letter-spacing:-.3px}.overview-fact span:not(.fact-icon){font-size:12px;margin-top:2px}.core-focus{grid-column:1/-1;padding-top:16px;margin:0}.focus-list{grid-template-columns:1fr 1fr;gap:11px 15px}.focus-list li{font-size:12px}.about-step{grid-template-columns:30px 36px minmax(0,1fr);gap:9px}.step-icon{width:36px;height:36px;border-radius:9px}.step-icon svg{width:23px;height:23px}.about-step h3{font-size:17px;line-height:1.55}.about-step p{font-size:15px;line-height:1.9}.about-steps{gap:25px}.education-layout{grid-template-columns:1fr;gap:16px}.academic-panel,.languages-panel{padding:21px}.panel-title{font-size:21px;margin-bottom:22px}.language-entry{grid-template-columns:30px minmax(0,1fr);padding-block:18px}.language-copy h4{font-size:16px}.language-copy p{font-size:14px}.language-level{font-size:14px}.language-dots{margin-top:4px}.degree-content h4,.degree-field{font-size:15px}.degree-institution{font-size:14px}.education-dates{font-size:13px}.degree-tags li{font-size:12px}}
+@media(max-width:639px){.education-entry{grid-template-columns:12px minmax(0,1fr);column-gap:14px;row-gap:6px;padding-bottom:24px}.education-dates{grid-column:2;grid-row:1;font-size:13px;line-height:1.7;padding:0}.education-dot{grid-column:1;grid-row:1 / 3;margin-top:6px}.degree-content{grid-column:2;grid-row:2}.education-entry:not(:last-child)::before{left:4px;top:12px}.about-step{grid-template-columns:29px minmax(0,1fr);column-gap:12px}.about-step .step-icon{display:none}.about-step>div{grid-column:2}.about-step h3{font-size:17px}.reference-heading{gap:12px}.reference-icon{width:42px;height:42px;flex-basis:42px}.reference-icon svg{width:27px;height:27px}}
+@media(max-width:359px){.overview-card{padding:17px;grid-template-columns:1fr;gap:18px}.overview-fact{align-items:center;gap:13px}.core-focus{grid-column:1}.focus-list{grid-template-columns:1fr}.reference-heading h2{font-size:24px}.reference-heading .reference-intro{font-size:14px}.academic-panel,.languages-panel{padding:18px}.language-dots{gap:5px}.language-dots i{width:10px;height:10px}.language-level{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.section-orbits *{animation:none}}
+@media print{.section-orbits{display:none}.about-layout,.education-layout{grid-template-columns:1fr}.overview-card,.academic-panel,.languages-panel{box-shadow:none;break-inside:avoid}}
+
+/* Keep language indicators in normal flow at every card width. */
+.language-entry{grid-template-columns:30px minmax(0,1fr) auto}
+.language-copy{grid-column:2 / 4}
+.language-level{position:static;grid-column:3;grid-row:2;align-self:center}
