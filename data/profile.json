@@ -66,23 +66,31 @@
       "title": "DevOps Engineer",
       "dates": "Sep 2025 – Jan 2026",
       "employment_type": "Contract",
-      "context": "Linux application infrastructure supporting PHP/Laravel services.",
+      "context": "Managed and modernized production infrastructure supporting PHP/Laravel applications, with a focus on cloud migration, infrastructure reliability, deployment operations and service continuity.",
       "responsibilities": [
-        "Maintained Linux infrastructure for PHP/Laravel services with Nginx, MySQL, Redis and Elasticsearch.",
-        "Supported deployments, monitoring, backups and incident troubleshooting."
+        "Planned and executed the migration of application infrastructure from on-premises environments to Hetzner Cloud, supporting the transition of production services to cloud-hosted infrastructure.",
+        "Configured and maintained Linux-based application environments using Nginx, MySQL, Redis and Elasticsearch.",
+        "Supported application and database migration activities, including infrastructure configuration, deployment validation and post-migration troubleshooting.",
+        "Managed deployment operations, monitoring, backup processes and incident resolution to maintain production service reliability.",
+        "Collaborated with application stakeholders to coordinate infrastructure changes and minimize operational disruption during migration."
       ],
       "pdf_bullets": [
-        "Maintained Linux infrastructure for PHP/Laravel services with Nginx, MySQL, Redis and Elasticsearch.",
-        "Supported deployments, monitoring, backups and incident troubleshooting."
+        "Migrated application infrastructure from on-premises environments to Hetzner Cloud, supporting PHP/Laravel production services.",
+        "Configured Linux, Nginx, MySQL, Redis and Elasticsearch; supported deployment validation, monitoring, backups and migration troubleshooting."
       ],
       "technologies": [
+        "Hetzner Cloud",
         "Linux",
         "Nginx",
         "MySQL",
         "Redis",
         "Elasticsearch",
-        "PHP/Laravel"
-      ]
+        "PHP/Laravel",
+        "Cloud Migration",
+        "Monitoring",
+        "Backup & Recovery"
+      ],
+      "focus": "Infrastructure Migration · Hetzner Cloud · Linux Operations"
     },
     {
       "company": "Midcontract",
@@ -638,50 +646,6 @@
       ]
     }
   ],
-  "projects": [
-    {
-      "name": "PipeForge",
-      "type": "Open-source project",
-      "description": "A reusable CI/CD framework for engineering teams that want one source of build logic across local execution, GitHub Actions, GitLab CI and Jenkins. Python executes jobs defined in YAML with explicit dependencies, reports and resumable runs.",
-      "contribution": "Public engineering work demonstrating reusable automation, pipeline dependency handling and a practical approach to reproducing CI behavior locally.",
-      "technologies": [
-        "Python",
-        "YAML",
-        "GitHub Actions",
-        "GitLab CI",
-        "Jenkins"
-      ],
-      "url": "https://github.com/CloudOpsMaster/pipeforge"
-    },
-    {
-      "name": "Kubernetes & cloud infrastructure",
-      "type": "Professional capability",
-      "description": "AWS production infrastructure and container platform work across Midcontract and PrivatBank, covering Terraform provisioning, Ansible automation and Kubernetes/Helm deployments.",
-      "contribution": "Built and automated AWS infrastructure at Midcontract; supported the OKD-to-EKS migration and deployment validation at PrivatBank.",
-      "technologies": [
-        "AWS EKS",
-        "Terraform",
-        "Ansible",
-        "Kubernetes",
-        "Helm"
-      ],
-      "url": null
-    },
-    {
-      "name": "CI/CD & operational reliability",
-      "type": "Professional capability",
-      "description": "Delivery automation and operational support across customer engineering environments: build and release workflows, infrastructure changes, monitoring and troubleshooting.",
-      "contribution": "Maintained CI/CD and release automation at GlobalLogic; supported incident investigation and recurring operational automation at Namecheap.",
-      "technologies": [
-        "Jenkins",
-        "GitLab CI",
-        "Spinnaker",
-        "Monitoring",
-        "Automation"
-      ],
-      "url": null
-    }
-  ],
   "education": [
     {
       "institution": "Kharkiv National University of Radio Electronics",
@@ -786,7 +750,6 @@
       "text": "Incident management, change/release (Advanced); team leadership (Intermediate)"
     }
   ],
-  "pdf_project_summary": "Python/YAML build logic shared across local execution, GitHub Actions, GitLab CI and Jenkins; dependency handling, execution reports and resumable runs.",
   "proficiency": {
     "source": "Candidate-provided scils.png",
     "label": "Self-assessed proficiency",

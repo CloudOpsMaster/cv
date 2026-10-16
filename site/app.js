@@ -1,4 +1,13 @@
 (() => {
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const scene = document.querySelector('.arrival-scene');
+  if (scene && !motion.matches && !location.hash) {
+    scene.classList.add('is-arriving');
+    const finish = () => scene.remove();
+    scene.addEventListener('animationend', event => { if (event.target === scene) finish(); });
+    setTimeout(finish, 1800);
+    motion.addEventListener('change', event => { if (event.matches) finish(); });
+  } else if (scene) scene.remove();
   const button = document.querySelector('.menu-toggle');
   const menu = document.querySelector('#mobile-navigation');
   const closeMenu = () => {
@@ -43,7 +52,7 @@
           reveal.unobserve(entry.target);
         }
       }, { threshold: 0.03 });
-      document.querySelectorAll('.expertise-card, .project-card').forEach(card => reveal.observe(card));
+      document.querySelectorAll('.expertise-card, .career-card').forEach(card => reveal.observe(card));
     }
   }
 })();

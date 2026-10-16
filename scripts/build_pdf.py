@@ -56,7 +56,7 @@ def build_pdf():
     for r in p['roles'][:2]:story.append(role(r))
     story+=[PageBreak(),P(e(p['name'])+' | Professional experience continued | <link href="'+e(c['github'])+'" color="#2563EB">GitHub</link>',style('continued',10,15,spaceAfter=9))]
     for r in p['roles'][2:]:story.append(role(r))
-    story+=[heading('Selected project'),P('<b>PipeForge</b> — '+e(p['pdf_project_summary'])),P('<link href="'+e(p['projects'][0]['url'])+'" color="#2563EB">'+e(p['projects'][0]['url'])+'</link>',small),heading('Education')]
+    story.append(heading('Education'))
     degree_style=style('degree',8.4,11)
     dates_style=style('degree-dates',8.4,11)
     education_rows=[]
