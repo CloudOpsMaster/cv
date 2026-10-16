@@ -20,11 +20,16 @@ for ref in doc.links+doc.resources:
     elif ':' not in ref:assert (SITE/ref).is_file(),ref
 for section in ['about','expertise','experience','projects','education','contact']:assert section in doc.ids
 assert 'linkedin' not in html.lower()
+assert 'moldova' not in html.lower() and '>Location<' not in html
+assert 'Senior DevOps' not in html
+assert 'Infrastructure Operations | Technical Leadership | Cloud &amp; Platform Engineering' not in html
+assert 'location' not in p['contact'] and 'positioning' not in p
 assert not re.search(r'\{\{\w+\}\}',html)
 assert p['name']+' | '+p['title'] in html.replace('&amp;','&')
 assert f'<link rel="canonical" href="{p["contact"]["website"]}">' in html
 schema=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>',html,re.S).group(1))
 assert schema['@type']=='Person' and schema['name']==p['name']
+assert not any(k in schema for k in ['address','homeLocation','workLocation'])
 assert 150 <= len(' '.join(p['about']).split()) <= 220,'About length'
 assert 60 <= len(p['pdf_summary'].split()) <= 90,'PDF summary length'
 for f in ['sitemap.xml','robots.txt','.nojekyll','build-info.json','assets/InterVariable.woff2','assets/Inter-LICENSE.txt','assets/social-card.png']:assert (SITE/f).exists(),f
@@ -41,6 +46,9 @@ for page in pdf.pages:
         assert descriptor and descriptor.get_object().get('/FontFile2'),'All PDF fonts must be embedded TrueType'
 combined=' '.join(texts);flat=' '.join(combined.split())
 assert 'linkedin' not in combined.lower()
+assert 'moldova' not in combined.lower() and 'location' not in combined.lower()
+assert 'senior' not in (combined+' '+str(pdf.metadata)).lower()
+assert 'Infrastructure Operations | Technical Leadership | Cloud & Platform Engineering' not in combined
 assert p['contact']['website'] in texts[0] and p['contact']['email'] in texts[0]
 for r in p['roles']:
     assert r['company'] in combined and r['title'] in combined and r['dates'] in combined,(r['company'],'PDF chronology')

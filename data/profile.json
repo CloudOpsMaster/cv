@@ -1,7 +1,6 @@
 {
   "name": "Vadym Pyrozhenko",
-  "title": "Senior DevOps & Cloud Infrastructure Engineer",
-  "positioning": "Infrastructure Operations | Technical Leadership | Cloud & Platform Engineering",
+  "title": "Cloud Infrastructure & DevOps Professional",
   "specialisms": [
     "Cloud Infrastructure",
     "DevOps",
@@ -12,7 +11,6 @@
   "it_years": "12+",
   "devops_years": "7+",
   "contact": {
-    "location": "Moldova",
     "phone": "+373 61 039 001",
     "tel": "+37361039001",
     "email": "cloudopsmaster.tech@gmail.com",
@@ -21,7 +19,7 @@
     "website": "https://cloudopsmaster.github.io/cv/"
   },
   "hero_summary": "IT professional with over 12 years of experience, including more than 7 years in DevOps and cloud infrastructure engineering. Experienced in designing, automating and maintaining production environments, improving CI/CD processes and supporting reliable enterprise platforms. Combines hands-on infrastructure expertise with technical coordination and team leadership experience.",
-  "pdf_summary": "Senior DevOps and cloud infrastructure engineer with 12+ years in IT, including 7+ years in DevOps and cloud infrastructure. Experience spans AWS production environments, Kubernetes, infrastructure as code, CI/CD and operational reliability. Previously led systems administration teams and coordinated enterprise infrastructure work. Combines hands-on automation and production troubleshooting with cross-functional collaboration, technical documentation and release support. Background includes enterprise IT and financial services, with a focus on maintainable infrastructure and reliable engineering delivery.",
+  "pdf_summary": "IT infrastructure and DevOps professional with 12+ years in IT, including 7+ years in DevOps and cloud infrastructure. Experience spans AWS production environments, Kubernetes, infrastructure as code, CI/CD and operational reliability. Previously led systems administration teams and coordinated enterprise infrastructure work. Combines hands-on automation and production troubleshooting with cross-functional collaboration, technical documentation and release support. Background includes enterprise IT and financial services, with a focus on maintainable infrastructure and reliable engineering delivery.",
   "about": [
     "I am a DevOps and cloud infrastructure professional with more than 12 years of experience in IT, including over 7 years in DevOps, infrastructure automation and production environments. My background connects traditional systems administration with cloud engineering, container orchestration and operational reliability.",
     "I have worked in enterprise IT and financial services, collaborating with development, operations and engineering teams supporting business-critical services. My core toolkit includes AWS, Kubernetes, Terraform, Ansible, Linux, Docker and CI/CD platforms such as Jenkins, GitLab CI/CD and GitHub Actions. Monitoring and troubleshooting are part of the same operational responsibility.",
@@ -376,7 +374,7 @@
     }
   ],
   "meta": {
-    "description": "Professional CV of Vadym Pyrozhenko — Senior DevOps and Cloud Infrastructure Engineer with 12+ years of IT experience, specializing in AWS, Kubernetes, Terraform, CI/CD and infrastructure operations."
+    "description": "Professional CV of Vadym Pyrozhenko — cloud infrastructure and DevOps professional with 12+ years in IT, AWS, Kubernetes, automation, infrastructure operations and team leadership experience."
   },
   "pdf_skills": [
     {
