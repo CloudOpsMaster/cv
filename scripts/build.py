@@ -52,7 +52,8 @@ def build_site():
         paragraphs=''.join('<p>'+esc(part)+'</p>' for part in paragraph.split('\n\n'))
         if i==1:
             for industry in p['industries']:paragraphs=paragraphs.replace(esc(industry),'<strong>'+esc(industry)+'</strong>')
-        about_steps+=f'<article class="about-step"><span class="step-number" aria-hidden="true">{i+1:02d}</span>{ui_icon(["cloud","layers","chart","target"][i],"step-icon")}<div><h3>{esc(title)}</h3>{paragraphs}</div></article>'
+        step_number=f'<span class="step-number" aria-hidden="true">{i+1:02d}</span>' if i!=2 else '<span aria-hidden="true"></span>'
+        about_steps+=f'<article class="about-step">{step_number}{ui_icon(["cloud","layers","chart","target"][i],"step-icon")}<div><h3>{esc(title)}</h3>{paragraphs}</div></article>'
     education=''
     for degree in p['education']:
         labels='<ul class="degree-tags">'+''.join('<li>'+esc(tag)+'</li>' for tag in degree['tags'])+'</ul>'
