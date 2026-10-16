@@ -1,0 +1,6 @@
+Selected SVG logos from @iconify-json/logos 1.2.16 (SVG Logos by Gil Barbara).
+Source: https://github.com/gilbarbara/logos
+Collection license: CC0-1.0 https://creativecommons.org/publicdomain/zero/1.0/
+Logo assets: ansible, argo-icon, aws, aws-eks, aws-iam, aws-rds, bash-icon, claude-icon, docker-icon, elasticsearch, github-actions, github-copilot, gitlab-icon, google-cloud, gradle, grafana, helm, jenkins, kubernetes, langchain-icon, linux-tux, microsoft-azure, microsoft-windows-icon, mongodb-icon, mysql-icon, new-relic-icon, openai-icon, packer, postgresql, prometheus, python, redis, sonarqube, spinnaker, teamcity, terraform-icon, vault-icon, zabbix
+Other icons are generic initial-based and concept symbols created for this CV.
+Additional brand paths from simple-icons 16.35.0, CC0-1.0: hetzner, proxmox, gerrit, artifactory, kubespray. Source: https://github.com/simple-icons/simple-icons
