@@ -67,7 +67,7 @@ async function checkLayout(page, label) {
       assert.equal(await page.locator('.phone-contact .primary-phone').getAttribute('href'),'tel:'+profile.contact.tel);
       assert.equal(await page.locator('.phone-contact a').filter({hasText:'WhatsApp'}).getAttribute('href'),profile.contact.whatsapp);
       assert.equal(await page.locator('.phone-contact a').filter({hasText:'Viber'}).getAttribute('href'),profile.contact.viber);
-      if([390,1440].includes(width))await page.locator('#expertise').screenshot({path:path.join(root,'qa',`${engine}-matrix-${width}.png`)});
+      if([390,1440].includes(width))await page.locator('#expertise').screenshot({path:path.join(root,'qa',`${engine}-matrix-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
 
       assert(await page.evaluate(()=>[...document.images].every(img=>img.complete&&img.naturalWidth>0)),'Images load');
       assert(await page.evaluate(()=>document.fonts.check('16px Inter')),'Self-hosted font loads');

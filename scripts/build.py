@@ -31,7 +31,8 @@ def build_site():
         rows=''
         for item in skill['items']:
             level=item['level'].lower()
-            rows+=f'<li class="skill-entry level-{level}"><img class="technology-icon" src="assets/skills/{esc(item["icon"])}.svg" alt="" width="25" height="25"><span class="skill-name">{esc(item["name"])}</span><span class="skill-bar" aria-hidden="true"><span></span></span><span class="skill-level">{esc(item["level"])}</span></li>'
+            display_name=esc(item['name']).replace('/', '/<wbr>')
+            rows+=f'<li class="skill-entry level-{level}"><img class="technology-icon" src="assets/skills/{esc(item["icon"])}.svg" alt="" width="25" height="25"><span class="skill-name">{display_name}</span><span class="skill-bar" aria-hidden="true"><span></span></span><span class="skill-level">{esc(item["level"])}</span></li>'
         expertise+=f'<article class="expertise-card proficiency-card category-{theme}" role="listitem"><div class="proficiency-card-heading"><span class="skill-category-number" aria-hidden="true">{i+1:02d}</span><span class="category-icon">{icon}</span><div><h3>{esc(skill["name"])}</h3><p>{esc(skill["description"])}</p></div></div><ul class="skill-entries" aria-label="{esc(skill["name"])} proficiency">{rows}</ul></article>'
     legend=''.join(f'<div class="legend-item level-{level["name"].lower()}"><span class="legend-swatch" aria-hidden="true"></span><div><strong>{esc(level["name"])}</strong><p>{esc(level["description"])}</p></div></div>' for level in p['proficiency']['levels'])
     experience=''
