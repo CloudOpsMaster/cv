@@ -255,8 +255,8 @@
     },
     {
       "name": "Containers & Orchestration",
-      "focus": "Build and operate containerized platforms in cloud and on-premises.",
-      "description": "Build and operate containerized platforms in cloud and on-premises.",
+      "focus": "Build and operate containerized platforms in cloud and on-premises, including GitOps delivery with Argo CD.",
+      "description": "Build and operate containerized platforms in cloud and on-premises, including GitOps delivery with Argo CD.",
       "theme": "containers",
       "technologies": [
         "Kubernetes",
@@ -264,6 +264,7 @@
         "Docker",
         "Helm / Helmfile",
         "Argo CD",
+        "GitOps",
         "Kubespray",
         "Proxmox"
       ],
@@ -292,6 +293,11 @@
           "name": "Argo CD",
           "level": "Intermediate",
           "icon": "argo-icon"
+        },
+        {
+          "name": "GitOps",
+          "level": "Intermediate",
+          "icon": "gitops"
         },
         {
           "name": "Kubespray",
@@ -753,6 +759,12 @@
         },
         {
           "name": "Helm / Helmfile"
+        },
+        {
+          "name": "Argo CD"
+        },
+        {
+          "name": "GitOps"
         }
       ]
     },
