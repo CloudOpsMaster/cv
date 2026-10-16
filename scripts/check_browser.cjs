@@ -78,6 +78,7 @@ const sections = ['about', 'expertise', 'experience', 'projects', 'education', '
       // Trigger presentation effects before recording the complete page.
       await page.evaluate(async () => { document.documentElement.style.scrollBehavior='auto'; for (let y=0;y<document.body.scrollHeight;y+=700) { scrollTo(0,y); await new Promise(r=>setTimeout(r,25)); } scrollTo(0,0); });
       await page.waitForTimeout(500);
+      if (width >= 768) assert.equal(await page.locator('.desktop-nav a[aria-current]').count(), 0, 'Navigation state resets at the profile');
       await page.screenshot({path:path.join(root,'qa',`cv-${width}.png`),fullPage:true});
       await page.screenshot({path:path.join(root,'qa',`hero-${width}.png`)});
       assert.deepEqual(errors,[],`JavaScript errors at ${width}`);

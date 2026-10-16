@@ -25,7 +25,7 @@
     if (event.matches) closeMenu();
   });
   if ('IntersectionObserver' in window) {
-    const sections = [...document.querySelectorAll('main > section[id]:not(#home)')];
+    const sections = [...document.querySelectorAll('main > section[id]')];
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
