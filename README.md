@@ -14,9 +14,9 @@ A static, accessible professional CV with detailed career information and a sepa
 - `scripts/build.py`: generates the website, metadata, sitemap, robots file and social image.
 - `scripts/build_pdf.py`: generates the resume with embedded Bitstream Vera fonts supplied by ReportLab.
 - `scripts/validate.py`: checks content consistency, local links, two A4 pages, PDF links and embedded fonts.
-- `scripts/check_browser.cjs`: browser, accessibility and responsive QA at 360, 390, 768, 1024 and 1440 pixels.
+- `scripts/check_browser.cjs`: browser, accessibility and responsive QA in Chromium, Firefox and WebKit: 13 portrait/landscape viewports plus a fluid width sweep from 320 to 2560 pixels, including CSS breakpoint boundaries.
 
-Website detail and PDF brevity are intentionally different. Employment dates and contact details are shared. Current positioning and experience indicators were supplied by the owner; actual employment titles and dates remain unchanged. See `CONTENT_REVIEW.md` for the factual boundary.
+Website detail and PDF brevity are intentionally different. Employment dates and contact details are shared. The neutral headline is suitable for engineering and management applications. Location is omitted from the website, metadata and PDF. Experience indicators were supplied by the owner; actual employment titles and dates remain unchanged. See `CONTENT_REVIEW.md` for the factual boundary.
 
 ## Local build and review
 
@@ -28,8 +28,10 @@ python3 -m venv .venv
 .venv/bin/python scripts/build.py
 .venv/bin/python scripts/validate.py
 npm ci --ignore-scripts
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run test:browser
+CV_BROWSER=firefox npm run test:browser
+CV_BROWSER=webkit npm run test:browser
 python3 -m http.server 8000 --directory site
 ```
 
@@ -37,7 +39,7 @@ Open http://localhost:8000/. Opening `site/index.html` directly also shows the C
 
 ## GitHub Pages
 
-GitHub Actions builds from `data/profile.json`, validates the generated content and resume, and runs Chromium/axe checks. Only a passing main-branch build can publish the `site/` artifact. Pull requests run the same checks without deploying. Pages uses GitHub Actions as its build source.
+GitHub Actions builds from `data/profile.json`, validates the generated content and resume, and runs a Chromium/Firefox/WebKit matrix with axe accessibility checks. UI tests cover overflow and text clipping, mobile menus, orientation, live resizing, sticky navigation, 44px primary touch targets and actual PDF downloads. Content regression checks prevent location and the old senior-specific headline from reappearing. Only a passing main-branch build can publish the `site/` artifact. Pull requests run the same checks without deploying. Pages uses GitHub Actions as its build source.
 
 `site/build-info.json` records the deployed source commit. The Pages artifact contains only the static website, its assets and the resume. Build tools and source data are not served as website files.
 

@@ -2,11 +2,11 @@
 
 ## Sources
 
-1. Owner's latest full technical specification: professional headline, Moldova location, +373 telephone number, 12+ IT / 7+ DevOps indicators, application targets and revised language selection.
+1. Owner's full specification and subsequent correction: neutral professional headline, no published personal location, +373 telephone number, 12+ IT / 7+ DevOps indicators, engineering/management application targets and revised language selection.
 2. Supplied `Vadym_Pyrozhenko_DevOps_CV.pdf`: seven employers, actual position titles and dates, contract/part-time status, responsibilities, education, languages and established technologies.
 3. PipeForge public README: https://github.com/CloudOpsMaster/pipeforge, reviewed 2026-10-16.
 
-The owner's senior positioning describes the profile, not a retroactive change to any employer's actual job title. The 12+/7+ indicators are owner-supplied career totals; individual roles retain their documented dates. No earlier employers or dates were invented to extend the documented chronology.
+The current neutral headline avoids an application-level seniority label; actual historical job titles remain unchanged. The 12+/7+ indicators are owner-supplied career totals; individual roles retain their documented dates. No earlier employers or dates were invented to extend the documented chronology.
 
 ## Included and verified
 

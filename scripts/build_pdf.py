@@ -33,7 +33,7 @@ def build_pdf():
         parts.extend(P('• '+e(b),bullet) for b in r['pdf_bullets'])
         parts.append(Spacer(1,5))
         return KeepTogether(parts)
-    story=[P(e(p['name']),ParagraphStyle('name',fontName='CV-Bold',fontSize=23,leading=29,textColor=NAVY,spaceAfter=5)),P(e(p['title']),style('title',11,15,spaceAfter=6)),P('<link href="'+e(c['website'])+'" color="#2563EB">'+e(c['website'])+'</link>',style('website',9.5,13,spaceAfter=5)),P(e(c['location'])+' | <link href="tel:'+c['tel']+'">'+e(c['phone'])+'</link> | <link href="mailto:'+e(c['email'])+'">'+e(c['email'])+'</link>',small),P('<link href="'+e(c['github'])+'">'+e(c['github'])+'</link> | <link href="'+e(c['telegram'])+'">'+e(c['telegram'])+'</link>',small),heading('Professional summary'),P(e(p['pdf_summary'])),heading('Core technical skills')]
+    story=[P(e(p['name']),ParagraphStyle('name',fontName='CV-Bold',fontSize=23,leading=29,textColor=NAVY,spaceAfter=5)),P(e(p['title']),style('title',11,15,spaceAfter=6)),P('<link href="'+e(c['website'])+'" color="#2563EB">'+e(c['website'])+'</link>',style('website',9.5,13,spaceAfter=5)),P('<link href="tel:'+c['tel']+'">'+e(c['phone'])+'</link> | <link href="mailto:'+e(c['email'])+'">'+e(c['email'])+'</link>',small),P('<link href="'+e(c['github'])+'">'+e(c['github'])+'</link> | <link href="'+e(c['telegram'])+'">'+e(c['telegram'])+'</link>',small),heading('Professional summary'),P(e(p['pdf_summary'])),heading('Core technical skills')]
     for skill in p['pdf_skills']:story.append(P('<b>'+e(skill['label'])+':</b> '+e(skill['text']),small))
     story.append(heading('Professional experience'))
     for r in p['roles'][:3]:story.append(role(r))
