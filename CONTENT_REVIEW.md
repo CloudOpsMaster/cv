@@ -27,3 +27,5 @@ The source image does not establish employer-specific use of these additional te
 This file is source documentation and is not deployed as a website page. The public CV contains complete verified career information rather than speculative or placeholder claims.
 
 The owner confirmed the industry overview (banking/financial services, retail/e-commerce, telecommunications, healthcare and blockchain) in the latest content update. These are general professional domains; no additional employer, project or result is inferred.
+
+Portrait update: owner-provided me.png; web copy encoded as JPEG at 768px. Head-and-shoulders framing uses CSS with no generative edits. Original remains local. PDF remains photo-free.

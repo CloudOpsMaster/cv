@@ -97,6 +97,10 @@ async function checkLayout(page, label) {
       assert(Math.abs(portrait.width-portrait.height)<1,'Portrait remains square');
       assert(portrait.width<=portrait.natural+1,'Portrait CSS size does not exceed source resolution');
       assert.equal(portrait.fit,'cover');
+      assert.equal(await page.locator('.portrait-frame img').getAttribute('src'),'assets/vadym-portrait.jpg');
+      const frame=await page.locator('.portrait-frame').evaluate(el=>({width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height,overflow:getComputedStyle(el).overflow}));
+      assert.equal(frame.overflow,'hidden','Photo crop remains within its frame');
+      assert(Math.abs(frame.width-frame.height)<1 && frame.width<=(width<768?84:112),'Existing portrait frame preserved');
       if([390,1440].includes(width)) {
         for(const section of ['about','experience','education'])await page.locator('#'+section).screenshot({scale:'css',path:path.join(root,'qa',`${engine}-${section}-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
       }
