@@ -11,15 +11,19 @@
   "it_years": "12+",
   "devops_years": "7+",
   "contact": {
-    "phone": "+373 61 039 001",
-    "tel": "+37361039001",
+    "phone": "+380 93 244 1801",
+    "tel": "+380932441801",
     "email": "cloudopsmaster.tech@gmail.com",
     "github": "https://github.com/CloudOpsMaster",
     "telegram": "https://t.me/CloudOpsMaster",
-    "website": "https://cloudopsmaster.github.io/cv/"
+    "website": "https://cloudopsmaster.github.io/cv/",
+    "whatsapp": "https://wa.me/380932441801",
+    "viber": "viber://chat?number=%2B380932441801",
+    "secondary_phone": "+373 61 039 001",
+    "secondary_tel": "+37361039001"
   },
   "hero_summary": "IT professional with over 12 years of experience, including more than 7 years in DevOps and cloud infrastructure engineering. Experienced in designing, automating and maintaining production environments, improving CI/CD processes and supporting reliable enterprise platforms. Combines hands-on infrastructure expertise with technical coordination and team leadership experience.",
-  "pdf_summary": "IT infrastructure and DevOps professional with 12+ years in IT, including 7+ years in DevOps and cloud infrastructure. Experience spans AWS production environments, Kubernetes, infrastructure as code, CI/CD and operational reliability. Previously led systems administration teams and coordinated enterprise infrastructure work. Combines hands-on automation and production troubleshooting with cross-functional collaboration, technical documentation and release support. Background includes enterprise IT and financial services, with a focus on maintainable infrastructure and reliable engineering delivery.",
+  "pdf_summary": "IT infrastructure and DevOps professional with 12+ years in IT, including 7+ years in DevOps and cloud infrastructure. Experience spans AWS, Kubernetes, infrastructure as code, CI/CD and production reliability. Previously led systems administration teams and coordinated enterprise infrastructure work. Combines hands-on automation and troubleshooting with cross-functional collaboration, technical documentation and release support across enterprise IT and financial services and business-critical production environments.",
   "about": [
     "I am a DevOps and cloud infrastructure professional with more than 12 years of experience in IT, including over 7 years in DevOps, infrastructure automation and production environments. My background connects traditional systems administration with cloud engineering, container orchestration and operational reliability.",
     "I have worked in enterprise IT and financial services, collaborating with development, operations and engineering teams supporting business-critical services. My core toolkit includes AWS, Kubernetes, Terraform, Ansible, Linux, Docker and CI/CD platforms such as Jenkins, GitLab CI/CD and GitHub Actions. Monitoring and troubleshooting are part of the same operational responsibility.",
@@ -202,97 +206,435 @@
   ],
   "skills": [
     {
-      "name": "Cloud platforms",
-      "focus": "AWS production infrastructure",
-      "description": "Provisioning and maintaining cloud resources for production workloads, with networking, access control and deployment requirements considered together. AWS is the primary platform; Azure and GCP are additional cloud exposure.",
+      "name": "Cloud Platforms",
+      "focus": "Design, deploy and operate scalable cloud infrastructure.",
+      "description": "Design, deploy and operate scalable cloud infrastructure.",
+      "theme": "cloud",
       "technologies": [
-        "AWS EC2",
-        "VPC",
-        "IAM",
-        "S3",
-        "EKS",
-        "RDS",
-        "ALB / NLB",
-        "Cloud networking"
+        "AWS",
+        "Azure",
+        "GCP",
+        "Hetzner Cloud"
+      ],
+      "items": [
+        {
+          "name": "AWS",
+          "level": "Expert",
+          "icon": "aws"
+        },
+        {
+          "name": "Azure",
+          "level": "Advanced",
+          "icon": "microsoft-azure"
+        },
+        {
+          "name": "GCP",
+          "level": "Intermediate",
+          "icon": "google-cloud"
+        },
+        {
+          "name": "Hetzner Cloud",
+          "level": "Intermediate",
+          "icon": "hetzner"
+        }
       ]
     },
     {
-      "name": "Containers & orchestration",
-      "focus": "Deployment and platform operations",
-      "description": "Deploying and operating containerized applications with Kubernetes and Helm, supporting production workloads and investigating deployment issues. Experience includes an OKD-to-EKS migration.",
+      "name": "Containers & Orchestration",
+      "focus": "Build and operate containerized platforms in cloud and on-premises.",
+      "description": "Build and operate containerized platforms in cloud and on-premises.",
+      "theme": "containers",
       "technologies": [
         "Kubernetes",
         "Amazon EKS",
         "Docker",
-        "Helm",
-        "OKD"
+        "Helm / Helmfile",
+        "Argo CD",
+        "Kubespray",
+        "Proxmox"
+      ],
+      "items": [
+        {
+          "name": "Kubernetes",
+          "level": "Expert",
+          "icon": "kubernetes"
+        },
+        {
+          "name": "Amazon EKS",
+          "level": "Advanced",
+          "icon": "aws-eks"
+        },
+        {
+          "name": "Docker",
+          "level": "Advanced",
+          "icon": "docker-icon"
+        },
+        {
+          "name": "Helm / Helmfile",
+          "level": "Advanced",
+          "icon": "helm"
+        },
+        {
+          "name": "Argo CD",
+          "level": "Intermediate",
+          "icon": "argo-icon"
+        },
+        {
+          "name": "Kubespray",
+          "level": "Intermediate",
+          "icon": "kubespray"
+        },
+        {
+          "name": "Proxmox",
+          "level": "Intermediate",
+          "icon": "proxmox"
+        }
       ]
     },
     {
-      "name": "Infrastructure as code & automation",
-      "focus": "Repeatable infrastructure workflows",
-      "description": "Infrastructure provisioning, configuration management and operational automation with Terraform and Ansible. Bash and Python support practical engineering workflows and recurring operational tasks.",
+      "name": "Infrastructure as Code & Automation",
+      "focus": "Automate infrastructure provisioning, configuration and operations.",
+      "description": "Automate infrastructure provisioning, configuration and operations.",
+      "theme": "automation",
       "technologies": [
         "Terraform",
         "Ansible",
         "Bash",
         "Python",
-        "Groovy",
-        "PowerShell"
+        "Packer",
+        "Cloud-init"
+      ],
+      "items": [
+        {
+          "name": "Terraform",
+          "level": "Expert",
+          "icon": "terraform-icon"
+        },
+        {
+          "name": "Ansible",
+          "level": "Advanced",
+          "icon": "ansible"
+        },
+        {
+          "name": "Bash",
+          "level": "Advanced",
+          "icon": "bash-icon"
+        },
+        {
+          "name": "Python",
+          "level": "Advanced",
+          "icon": "python"
+        },
+        {
+          "name": "Packer",
+          "level": "Intermediate",
+          "icon": "packer"
+        },
+        {
+          "name": "Cloud-init",
+          "level": "Intermediate",
+          "icon": "cloud-init"
+        }
       ]
     },
     {
-      "name": "CI/CD & engineering delivery",
-      "focus": "From build to production release",
-      "description": "Maintaining build and deployment pipelines, release workflows and quality checks across engineering teams. Supporting delivery changes, deployment validation and operational documentation.",
+      "name": "CI/CD & DevOps Tools",
+      "focus": "Build and maintain CI/CD pipelines and engineering workflows.",
+      "description": "Build and maintain CI/CD pipelines and engineering workflows.",
+      "theme": "delivery",
       "technologies": [
         "Jenkins",
-        "GitLab CI/CD",
+        "GitLab CI",
         "GitHub Actions",
         "TeamCity",
         "Spinnaker",
         "Gerrit",
-        "SonarQube"
+        "SonarQube",
+        "Artifactory",
+        "Gradle"
+      ],
+      "items": [
+        {
+          "name": "Jenkins",
+          "level": "Expert",
+          "icon": "jenkins"
+        },
+        {
+          "name": "GitLab CI",
+          "level": "Advanced",
+          "icon": "gitlab-icon"
+        },
+        {
+          "name": "GitHub Actions",
+          "level": "Advanced",
+          "icon": "github-actions"
+        },
+        {
+          "name": "TeamCity",
+          "level": "Intermediate",
+          "icon": "teamcity"
+        },
+        {
+          "name": "Spinnaker",
+          "level": "Intermediate",
+          "icon": "spinnaker"
+        },
+        {
+          "name": "Gerrit",
+          "level": "Intermediate",
+          "icon": "gerrit"
+        },
+        {
+          "name": "SonarQube",
+          "level": "Intermediate",
+          "icon": "sonarqube"
+        },
+        {
+          "name": "Artifactory",
+          "level": "Intermediate",
+          "icon": "artifactory"
+        },
+        {
+          "name": "Gradle",
+          "level": "Basic",
+          "icon": "gradle"
+        }
       ]
     },
     {
-      "name": "Monitoring & reliability",
-      "focus": "Visibility into production systems",
-      "description": "Infrastructure monitoring, log analysis and alerting to support incident investigation and production troubleshooting. Experience with performance analysis and root-cause investigation.",
+      "name": "Monitoring & Observability",
+      "focus": "Implement monitoring, logging and alerting solutions.",
+      "description": "Implement monitoring, logging and alerting solutions.",
+      "theme": "observability",
       "technologies": [
         "Prometheus",
         "Grafana",
         "Alertmanager",
+        "Loki",
         "ELK",
-        "Zabbix"
+        "Zabbix",
+        "New Relic"
+      ],
+      "items": [
+        {
+          "name": "Prometheus",
+          "level": "Expert",
+          "icon": "prometheus"
+        },
+        {
+          "name": "Grafana",
+          "level": "Expert",
+          "icon": "grafana"
+        },
+        {
+          "name": "Alertmanager",
+          "level": "Advanced",
+          "icon": "alertmanager"
+        },
+        {
+          "name": "Loki",
+          "level": "Advanced",
+          "icon": "loki"
+        },
+        {
+          "name": "ELK",
+          "level": "Advanced",
+          "icon": "elasticsearch"
+        },
+        {
+          "name": "Zabbix",
+          "level": "Advanced",
+          "icon": "zabbix"
+        },
+        {
+          "name": "New Relic",
+          "level": "Advanced",
+          "icon": "new-relic-icon"
+        }
       ]
     },
     {
-      "name": "Systems & databases",
-      "focus": "The operational foundation",
-      "description": "Linux and Windows Server administration, networking and virtualized enterprise environments. Application infrastructure experience includes relational databases, caches and search services.",
+      "name": "Systems & Databases",
+      "focus": "Administer Linux/Windows environments and data storage solutions.",
+      "description": "Administer Linux/Windows environments and data storage solutions.",
+      "theme": "systems",
       "technologies": [
-        "Linux",
+        "Linux (Ubuntu/CentOS/SUSE)",
         "Windows Server",
-        "VMware",
-        "Hyper-V",
+        "Networking",
         "PostgreSQL",
-        "MySQL",
+        "MySQL / MariaDB",
+        "MongoDB",
         "Redis",
-        "Elasticsearch"
+        "RDS / Aurora"
+      ],
+      "items": [
+        {
+          "name": "Linux (Ubuntu/CentOS/SUSE)",
+          "level": "Expert",
+          "icon": "linux-tux"
+        },
+        {
+          "name": "Windows Server",
+          "level": "Advanced",
+          "icon": "microsoft-windows-icon"
+        },
+        {
+          "name": "Networking",
+          "level": "Advanced",
+          "icon": "networking"
+        },
+        {
+          "name": "PostgreSQL",
+          "level": "Advanced",
+          "icon": "postgresql"
+        },
+        {
+          "name": "MySQL / MariaDB",
+          "level": "Advanced",
+          "icon": "mysql-icon"
+        },
+        {
+          "name": "MongoDB",
+          "level": "Intermediate",
+          "icon": "mongodb-icon"
+        },
+        {
+          "name": "Redis",
+          "level": "Intermediate",
+          "icon": "redis"
+        },
+        {
+          "name": "RDS / Aurora",
+          "level": "Advanced",
+          "icon": "aws-rds"
+        }
       ]
     },
     {
-      "name": "Operations & leadership",
-      "focus": "Technical execution and coordination",
-      "description": "Leading infrastructure engineers, coordinating vendors and working across development and operations teams. Planning infrastructure work, supporting budgeting and capacity planning, and documenting operational procedures.",
+      "name": "Security & Access Management",
+      "focus": "Implement security best practices and access control.",
+      "description": "Implement security best practices and access control.",
+      "theme": "security",
       "technologies": [
-        "Infrastructure operations",
-        "Team leadership",
-        "Technical coordination",
-        "Incident investigation",
-        "Release support",
-        "Technical documentation"
+        "IAM",
+        "Security Groups",
+        "Vault",
+        "Ranger",
+        "Penetration Testing"
+      ],
+      "items": [
+        {
+          "name": "IAM",
+          "level": "Advanced",
+          "icon": "aws-iam"
+        },
+        {
+          "name": "Security Groups",
+          "level": "Advanced",
+          "icon": "security-groups"
+        },
+        {
+          "name": "Vault",
+          "level": "Intermediate",
+          "icon": "vault-icon"
+        },
+        {
+          "name": "Ranger",
+          "level": "Intermediate",
+          "icon": "ranger"
+        },
+        {
+          "name": "Penetration Testing",
+          "level": "Basic",
+          "icon": "penetration-testing"
+        }
+      ]
+    },
+    {
+      "name": "AI & Agents",
+      "focus": "Use AI tools and agents to improve engineering productivity and automation.",
+      "description": "Use AI tools and agents to improve engineering productivity and automation.",
+      "theme": "ai",
+      "technologies": [
+        "GitHub Copilot",
+        "ChatGPT",
+        "Claude",
+        "AI Agents (LangChain)",
+        "Automation Agents",
+        "Prompt Engineering",
+        "AI for DevOps"
+      ],
+      "items": [
+        {
+          "name": "GitHub Copilot",
+          "level": "Advanced",
+          "icon": "github-copilot"
+        },
+        {
+          "name": "ChatGPT",
+          "level": "Advanced",
+          "icon": "openai-icon"
+        },
+        {
+          "name": "Claude",
+          "level": "Advanced",
+          "icon": "claude-icon"
+        },
+        {
+          "name": "AI Agents (LangChain)",
+          "level": "Intermediate",
+          "icon": "langchain-icon"
+        },
+        {
+          "name": "Automation Agents",
+          "level": "Intermediate",
+          "icon": "automation-agents"
+        },
+        {
+          "name": "Prompt Engineering",
+          "level": "Intermediate",
+          "icon": "bash-icon"
+        },
+        {
+          "name": "AI for DevOps",
+          "level": "Intermediate",
+          "icon": "ai-devops"
+        }
+      ]
+    },
+    {
+      "name": "Operations & Leadership",
+      "focus": "Infrastructure operations, incident management and technical coordination.",
+      "description": "Infrastructure operations, incident management and technical coordination.",
+      "theme": "leadership",
+      "technologies": [
+        "Incident Management",
+        "Change & Release",
+        "Team Leadership",
+        "Technical Coordination"
+      ],
+      "items": [
+        {
+          "name": "Incident Management",
+          "level": "Advanced",
+          "icon": "incident-management"
+        },
+        {
+          "name": "Change & Release",
+          "level": "Advanced",
+          "icon": "change-release"
+        },
+        {
+          "name": "Team Leadership",
+          "level": "Intermediate",
+          "icon": "team-leadership"
+        },
+        {
+          "name": "Technical Coordination",
+          "level": "Intermediate",
+          "icon": "technical-coordination"
+        }
       ]
     }
   ],
@@ -378,29 +720,63 @@
   },
   "pdf_skills": [
     {
-      "label": "Cloud",
-      "text": "AWS: EC2, S3, EKS, VPC, IAM, RDS, ALB/NLB; additional exposure to Azure, GCP"
+      "label": "Cloud Platforms",
+      "text": "AWS (Expert); Azure (Advanced); GCP, Hetzner Cloud (Intermediate)"
     },
     {
-      "label": "Containers & IaC",
-      "text": "Kubernetes, Docker, Helm, Terraform, Ansible"
+      "label": "Containers",
+      "text": "Kubernetes (Expert); EKS, Docker, Helm / Helmfile (Advanced)"
     },
     {
-      "label": "CI/CD",
-      "text": "Jenkins, GitLab CI/CD, GitHub Actions, TeamCity, Spinnaker, Gerrit, SonarQube"
+      "label": "IaC & Automation",
+      "text": "Terraform (Expert); Ansible, Bash, Python (Advanced)"
     },
     {
-      "label": "Reliability",
-      "text": "Prometheus, Grafana, Alertmanager, ELK, Zabbix; incident investigation"
+      "label": "CI/CD & DevOps",
+      "text": "Jenkins (Expert); GitLab CI, GitHub Actions (Advanced); Gradle (Basic)"
     },
     {
-      "label": "Systems & automation",
-      "text": "Linux, Windows Server, networking, VMware/Hyper-V, Bash, Python, Groovy"
+      "label": "Observability",
+      "text": "Prometheus, Grafana (Expert); Alertmanager, Loki, ELK, Zabbix (Advanced)"
+    },
+    {
+      "label": "Systems & Databases",
+      "text": "Linux (Expert); Windows, networking, PostgreSQL, MySQL (Advanced)"
+    },
+    {
+      "label": "Security & Access",
+      "text": "IAM, Security Groups (Advanced); Vault, Ranger (Intermediate)"
+    },
+    {
+      "label": "AI & Agents",
+      "text": "Copilot, ChatGPT, Claude (Advanced); LangChain, automation agents (Intermediate)"
     },
     {
       "label": "Operations",
-      "text": "Infrastructure coordination, team leadership, production support, technical delivery"
+      "text": "Incident management, change/release (Advanced); team leadership (Intermediate)"
     }
   ],
-  "pdf_project_summary": "Python/YAML build logic shared across local execution, GitHub Actions, GitLab CI and Jenkins; dependency handling, execution reports and resumable runs."
+  "pdf_project_summary": "Python/YAML build logic shared across local execution, GitHub Actions, GitLab CI and Jenkins; dependency handling, execution reports and resumable runs.",
+  "proficiency": {
+    "source": "Candidate-provided scils.png",
+    "label": "Self-assessed proficiency",
+    "levels": [
+      {
+        "name": "Expert",
+        "description": "Deep knowledge and independent work"
+      },
+      {
+        "name": "Advanced",
+        "description": "Strong experience and regular use"
+      },
+      {
+        "name": "Intermediate",
+        "description": "Practical experience and limited use"
+      },
+      {
+        "name": "Basic",
+        "description": "Familiar with basics and initial experience"
+      }
+    ]
+  }
 }

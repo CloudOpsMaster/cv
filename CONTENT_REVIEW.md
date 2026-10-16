@@ -2,9 +2,10 @@
 
 ## Sources
 
-1. Owner's full specification and subsequent correction: neutral professional headline, no published personal location, +373 telephone number, 12+ IT / 7+ DevOps indicators, engineering/management application targets and revised language selection.
+1. Owner's full specification and subsequent correction: neutral professional headline, no published personal location, primary +380 telephone number with WhatsApp/Viber and an additional +373 number, 12+ IT / 7+ DevOps indicators, engineering/management application targets and revised language selection.
 2. Supplied `Vadym_Pyrozhenko_DevOps_CV.pdf`: seven employers, actual position titles and dates, contract/part-time status, responsibilities, education, languages and established technologies.
-3. PipeForge public README: https://github.com/CloudOpsMaster/pipeforge, reviewed 2026-10-16.
+3. Candidate-provided `scils.png`: nine categories, technology names and qualitative self-assessed proficiency levels, supplied 2026-10-16.
+4. PipeForge public README: https://github.com/CloudOpsMaster/pipeforge, reviewed 2026-10-16.
 
 The current neutral headline avoids an application-level seniority label; actual historical job titles remain unchanged. The 12+/7+ indicators are owner-supplied career totals; individual roles retain their documented dates. No earlier employers or dates were invented to extend the documented chronology.
 
@@ -20,6 +21,8 @@ The current neutral headline avoids an application-level seniority label; actual
 
 ## Details requiring additional evidence
 
-The specification names further technologies and possible examples that the original PDF does not document explicitly: Aurora, CloudFront, Auto Scaling, Helmfile, ingress/RBAC/IRSA, Argo CD, Flux, Kubespray, Proxmox, Artifactory, Gradle, Loki, named Linux distributions, MariaDB and MongoDB. These are withheld from personal skill claims until confirmed. An on-premises Kubernetes case study and Ericsson client reference are likewise withheld until the candidate's role and contribution are confirmed.
+The latest image supplies additional personal skills and their levels (including on-premises tooling, security and AI tools). These are presented as **self-assessed**, not certified or independently tested. The short PDF selects representative skills from each of the same nine categories; the website contains the full matrix. Bar lengths are decorative representations of four qualitative levels and do not assert numerical scores or percentages.
+
+The source image does not establish employer-specific use of these additional technologies. No such responsibilities have been added to historical jobs. Detailed on-premises case studies, Ericsson client references, CloudFront, Auto Scaling, Flux and other claims absent from the supplied sources remain excluded until supported.
 
 This file is source documentation and is not deployed as a website page. The public CV contains complete verified career information rather than speculative or placeholder claims.

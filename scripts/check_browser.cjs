@@ -58,17 +58,15 @@ async function checkLayout(page, label) {
       assert.equal(await page.locator('.professional-title').innerText(),'Cloud Infrastructure & DevOps Professional');
       assert(!/Moldova|\bLocation\b|Senior DevOps|Infrastructure Operations \| Technical Leadership \| Cloud & Platform Engineering/i.test(await page.locator('body').innerText()),'Removed profile claims must stay absent');
       assert.equal(await page.locator('.experience-entry').count(),7);
-      assert.equal(await page.locator('.expertise-card').count(),7);
-      assert.equal(await page.locator('.matrix-row').count(),profile.skills.length);
-      assert.deepEqual(await page.locator('.expertise-technologies li').allTextContents(),profile.skills.flatMap(skill=>skill.technologies),'Matrix preserves all technologies');
-      const firstDetail=page.locator('.expertise-detail').first();
-      await firstDetail.locator('summary').click();
-      assert(await firstDetail.locator('.expertise-description').isVisible(),'Matrix description opens');
-      await firstDetail.locator('summary').press('Enter');
-      assert.equal(await firstDetail.evaluate(el=>el.open),false,'Matrix supports keyboard toggling');
-      await page.locator('.expertise-detail').evaluateAll(items=>items.forEach(el=>el.open=true));
-      await checkLayout(page,label+' expanded expertise matrix');
-      await page.locator('.expertise-detail').evaluateAll(items=>items.forEach(el=>el.open=false));
+      assert.equal(await page.locator('.expertise-card').count(),profile.skills.length);
+      assert.equal(await page.locator('.proficiency-card').count(),profile.skills.length);
+      assert.deepEqual(await page.locator('.skill-name').allTextContents(),profile.skills.flatMap(skill=>skill.items.map(item=>item.name)),'Matrix preserves reference technologies');
+      assert.deepEqual(await page.locator('.skill-level').allTextContents(),profile.skills.flatMap(skill=>skill.items.map(item=>item.level)),'Matrix preserves self-assessed reference levels');
+      assert.equal(await page.locator('.legend-item').count(),4);
+      assert.equal(await page.locator('.identity-card a[href="tel:'+profile.contact.tel+'"]').count(),1,'Primary phone in business card');
+      assert.equal(await page.locator('.phone-contact .primary-phone').getAttribute('href'),'tel:'+profile.contact.tel);
+      assert.equal(await page.locator('.phone-contact a').filter({hasText:'WhatsApp'}).getAttribute('href'),profile.contact.whatsapp);
+      assert.equal(await page.locator('.phone-contact a').filter({hasText:'Viber'}).getAttribute('href'),profile.contact.viber);
       if([390,1440].includes(width))await page.locator('#expertise').screenshot({path:path.join(root,'qa',`${engine}-matrix-${width}.png`)});
 
       assert(await page.evaluate(()=>[...document.images].every(img=>img.complete&&img.naturalWidth>0)),'Images load');
@@ -132,7 +130,7 @@ async function checkLayout(page, label) {
     await page.waitForFunction(()=>document.querySelector('#mobile-navigation').hidden);
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
-    const widths=[...new Set([320,360,375,390,430,600,699,700,701,766,767,768,769,899,900,901,1023,1024,1025,1159,1160,1161,1279,1280,1281,1440,1920,2560,...Array.from({length:71},(_,i)=>320+i*32)])].sort((a,b)=>a-b);
+    const widths=[...new Set([320,360,375,390,430,600,639,640,641,699,700,701,766,767,768,769,899,900,901,979,980,981,1023,1024,1025,1159,1160,1161,1199,1200,1201,1279,1280,1281,1349,1350,1351,1440,1920,2560,...Array.from({length:71},(_,i)=>320+i*32)])].sort((a,b)=>a-b);
     for(const width of widths) {
       await page.setViewportSize({width,height:width<768?844:900});
       await checkLayout(page,`${engine} fluid width ${width}`);

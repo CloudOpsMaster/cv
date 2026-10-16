@@ -33,6 +33,16 @@ assert not any(k in schema for k in ['address','homeLocation','workLocation'])
 assert 150 <= len(' '.join(p['about']).split()) <= 220,'About length'
 assert 60 <= len(p['pdf_summary'].split()) <= 90,'PDF summary length'
 for f in ['sitemap.xml','robots.txt','.nojekyll','build-info.json','assets/InterVariable.woff2','assets/Inter-LICENSE.txt','assets/social-card.png']:assert (SITE/f).exists(),f
+assert p['contact']['tel']=='+380932441801'
+assert p['contact']['whatsapp']=='https://wa.me/380932441801'
+assert p['contact']['viber']=='viber://chat?number=%2B380932441801'
+levels={entry['name'] for entry in p['proficiency']['levels']}
+for group in p['skills']:
+    assert group['technologies']==[item['name'] for item in group['items']]
+    for item in group['items']:
+        assert item['level'] in levels
+        assert (SITE/'assets/skills'/(item['icon']+'.svg')).is_file()
+assert 'Self-assessed proficiency' in html
 pdf=PdfReader(SITE/'Vadym_Pyrozhenko_CV.pdf')
 assert len(pdf.pages)==2,f'Expected 2 pages, got {len(pdf.pages)}'
 texts=[]
@@ -50,6 +60,10 @@ assert 'moldova' not in combined.lower() and 'location' not in combined.lower()
 assert 'senior' not in (combined+' '+str(pdf.metadata)).lower()
 assert 'Infrastructure Operations | Technical Leadership | Cloud & Platform Engineering' not in combined
 assert p['contact']['website'] in texts[0] and p['contact']['email'] in texts[0]
+assert p['contact']['phone'] in texts[0]
+assert all(level in texts[0] for level in levels)
+uris=[str(a.get_object()['/A'].get('/URI','')) for a in pdf.pages[0].get('/Annots',[]) if a.get_object().get('/A')]
+assert p['contact']['whatsapp'] in uris and p['contact']['viber'] in uris
 for r in p['roles']:
     assert r['company'] in combined and r['title'] in combined and r['dates'] in combined,(r['company'],'PDF chronology')
     assert r['company'] in html and r['dates'] in html,(r['company'],'website chronology')
