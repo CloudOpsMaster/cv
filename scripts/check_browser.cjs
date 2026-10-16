@@ -16,7 +16,7 @@ const viewports = [
   {width:2560,height:1440}
 ];
 const profile = require('../data/profile.json');
-const sections = ['about', 'expertise', 'experience', 'projects', 'education', 'contact'];
+const sections = ['about', 'expertise', 'experience', 'education', 'contact'];
 async function checkLayout(page, label) {
   const layout = await page.evaluate(() => {
     const problems=[];
@@ -58,6 +58,20 @@ async function checkLayout(page, label) {
       assert.equal(await page.locator('.professional-title').innerText(),'Cloud Infrastructure & DevOps Professional');
       assert(!/Moldova|\bLocation\b|Senior DevOps|Infrastructure Operations \| Technical Leadership \| Cloud & Platform Engineering/i.test(await page.locator('body').innerText()),'Removed profile claims must stay absent');
       assert.equal(await page.locator('.experience-entry').count(),7);
+      assert.equal(await page.locator('#projects').count(),0,'Selected work removed');
+      assert(!/\bECTS\b/.test(await page.locator('body').innerText()));
+      assert.equal(await page.locator('.career-card').count(),7);
+      assert(await page.locator('.career-card').first().getAttribute('open') !== null);
+      for (let index=0;index<profile.roles.length;index++) {
+        const card=page.locator('.career-card').nth(index);
+        if (index>0) await card.locator('summary').click();
+        assert.equal(await card.locator('.responsibilities li').count(),profile.roles[index].responsibilities.length);
+        assert.deepEqual(await card.locator('.responsibilities li').allTextContents(),profile.roles[index].responsibilities);
+        await checkLayout(page,label+' expanded role '+index);
+        if (index>0) await card.locator('summary').click();
+      }
+      assert(await page.locator('.career-card').nth(1).innerText().then(text=>text.includes('Hetzner Cloud')));
+
       assert.equal(await page.locator('.expertise-card').count(),profile.skills.length);
       assert.equal(await page.locator('.about-step').count(),profile.about.length,'Structured professional overview');
       assert.deepEqual(await page.locator('.about-step p').allTextContents(),profile.about,'Professional overview content preserved');
@@ -73,7 +87,7 @@ async function checkLayout(page, label) {
       assert(portrait.width<=portrait.natural+1,'Portrait CSS size does not exceed source resolution');
       assert.equal(portrait.fit,'cover');
       if([390,1440].includes(width)) {
-        for(const section of ['about','education'])await page.locator('#'+section).screenshot({scale:'css',path:path.join(root,'qa',`${engine}-${section}-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
+        for(const section of ['about','experience','education'])await page.locator('#'+section).screenshot({scale:'css',path:path.join(root,'qa',`${engine}-${section}-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
       }
 
       assert.equal(await page.locator('.proficiency-card').count(),profile.skills.length);
@@ -155,9 +169,22 @@ async function checkLayout(page, label) {
     }
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.locator('.portrait-orbit').evaluate(el=>getComputedStyle(el).animationName),'none');
-    const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
+    const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844},reducedMotion:'reduce'});
     const plain=await nojs.newPage();await plain.goto(url+'#experience');
     assert.equal(await plain.locator('.experience-entry').count(),7);assert(await plain.locator('#experience').isVisible());
+    await plain.locator('.career-card').nth(1).locator('summary').focus();
+    await plain.keyboard.press('Enter');
+    assert(await plain.locator('.career-card').nth(1).locator('.responsibilities').isVisible(),'Native disclosure works without JavaScript');
+    assert.equal(await page.locator('.arrival-scene').count(),0,'No arrival animation with reduced motion');
+    const animated=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
+    const arrival=await animated.newPage();await arrival.goto(url);
+    await arrival.getByRole('heading',{name:'Vadym Pyrozhenko',exact:true}).waitFor();
+    await arrival.locator('.hero-actions a[href="#contact"]').click();
+    await arrival.waitForFunction(()=>location.hash==='#contact');
+    await arrival.waitForFunction(()=>!document.querySelector('.arrival-scene'));
+    await arrival.goto(url+'#experience');
+    assert.equal(await arrival.locator('.arrival-scene').count(),0,'Direct anchors skip arrival');
+    await animated.close();report.arrivalAnimation='passed';
     await nojs.close();report.reducedMotion='passed';report.menuResize='passed';report.noJavaScriptContent='passed';
     await writeFile(path.join(root,'qa',`${engine}-report.json`),JSON.stringify(report,null,2));
     console.log(JSON.stringify(report,null,2));

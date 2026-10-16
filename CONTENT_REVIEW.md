@@ -6,16 +6,14 @@
 2. Supplied `Vadym_Pyrozhenko_DevOps_CV.pdf`: seven employers, actual position titles and dates, contract/part-time status, responsibilities, education, languages and established technologies.
 3. Candidate-provided `scils.png`: nine categories, technology names and qualitative self-assessed proficiency levels, supplied 2026-10-16.
 4. Candidate-provided `123.png` and `edication.png`: overview presentation, language indicators and the Specialist degree in Radio Electronic Warfare (2009–2011) at Kharkiv National Air Force University named after Ivan Kozhedub. The degree is owner-supplied education, not an inferred military service or employment claim.
-5. PipeForge public README: https://github.com/CloudOpsMaster/pipeforge, reviewed 2026-10-16.
+5. Owner-provided ex.png and West Auto Hub migration description: migration from on-premises infrastructure to Hetzner Cloud, Linux application operations, deployment validation, backups and stakeholder coordination. Supplied 2026-10-16.
 
 The current neutral headline avoids an application-level seniority label; actual historical job titles remain unchanged. The 12+/7+ indicators are owner-supplied career totals; individual roles retain their documented dates. No earlier employers or dates were invented to extend the documented chronology.
 
 ## Included and verified
 
 - All seven roles, including Fozzy Group leadership, remain visible. Overlapping contract and part-time roles are explicitly labeled.
-- AWS, Kubernetes and Terraform capability examples refer to Midcontract and PrivatBank; the latter describes supported migration participation, not sole platform ownership.
 - UAPAY remains a technical integration role. It has not been rewritten as an unsupported DevOps or Linux administrator position.
-- PipeForge's card describes shared YAML/Python pipeline execution, dependencies, reports and resume behavior. It does not claim roadmap features as implemented.
 - Three master's degrees retain their original fields and date ranges. The additional specialist qualification follows `edication.png`. Graduation years are the ends of the documented ranges.
 - Only Ukrainian and English are displayed under the latest language requirement.
 - No employer-confidential details, fabricated metrics, unsupported certifications or client ownership claims are included.

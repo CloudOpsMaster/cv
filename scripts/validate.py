@@ -18,7 +18,10 @@ assert len(doc.ids)==len(set(doc.ids)),'Duplicate HTML IDs'
 for ref in doc.links+doc.resources:
     if ref.startswith('#'):assert ref[1:] in doc.ids,ref
     elif ':' not in ref:assert (SITE/ref).is_file(),ref
-for section in ['about','expertise','experience','projects','education','contact']:assert section in doc.ids
+for section in ['about','expertise','experience','education','contact']:assert section in doc.ids
+assert 'projects' not in doc.ids and 'Selected work &amp; capabilities' not in html
+assert 'ECTS' not in html
+assert 'Hetzner Cloud' in html
 assert 'linkedin' not in html.lower()
 assert 'moldova' not in html.lower() and '>Location<' not in html
 assert 'Senior DevOps' not in html
@@ -55,6 +58,8 @@ for page in pdf.pages:
         font=font.get_object();descriptor=font.get('/FontDescriptor')
         assert descriptor and descriptor.get_object().get('/FontFile2'),'All PDF fonts must be embedded TrueType'
 combined=' '.join(texts);flat=' '.join(combined.split())
+assert 'ECTS' not in combined and 'Selected project' not in combined
+assert 'Hetzner Cloud' in combined
 assert 'linkedin' not in combined.lower()
 assert 'moldova' not in combined.lower() and 'location' not in combined.lower()
 assert 'senior' not in (combined+' '+str(pdf.metadata)).lower()

@@ -13,7 +13,7 @@ def tags(values):
     return '<ul class="tags" aria-label="Technologies and capabilities">' + ''.join('<li>'+esc(v)+'</li>' for v in values) + '</ul>'
 def build_site():
     p=load_profile();c=p['contact'];site=ROOT/'site';site.mkdir(exist_ok=True)
-    nav=''.join(f'<a href="#{x.lower()}">{x}</a>' for x in ['About','Expertise','Experience','Projects','Education','Contact'])
+    nav=''.join(f'<a href="#{x.lower()}">{x}</a>' for x in ['About','Expertise','Experience','Education','Contact'])
     category_paths={
         'cloud':'<path d="M7 18H6a4 4 0 0 1-.5-8A6.5 6.5 0 0 1 18 8a5 5 0 0 1 0 10H7z"/>',
         'containers':'<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zM4 7.5l8 4.5 8-4.5M12 12v9M8 5.2l8 4.5"/>',
@@ -37,13 +37,15 @@ def build_site():
         expertise+=f'<article class="expertise-card proficiency-card category-{theme}" role="listitem"><div class="proficiency-card-heading"><span class="skill-category-number" aria-hidden="true">{i+1:02d}</span><span class="category-icon">{icon}</span><div><h3>{esc(skill["name"])}</h3><p>{esc(skill["description"])}</p></div></div><ul class="skill-entries" aria-label="{esc(skill["name"])} proficiency">{rows}</ul></article>'
     legend=''.join(f'<div class="legend-item level-{level["name"].lower()}"><span class="legend-swatch" aria-hidden="true"></span><div><strong>{esc(level["name"])}</strong><p>{esc(level["description"])}</p></div></div>' for level in p['proficiency']['levels'])
     experience=''
-    for r in p['roles']:
+    colors=['blue','violet','teal','teal','amber','violet','blue']
+    marks=['GL','WAH','M','PB','UA','N','FG']
+    focuses=['Enterprise engineering',r'Infrastructure Migration · Hetzner Cloud · Linux Operations','Cloud infrastructure','Banking & cloud migration','FinTech integrations','Production reliability','IT leadership']
+    for i,r in enumerate(p['roles']):
         kind=f'<span class="employment-type">{esc(r["employment_type"])}</span>' if r['employment_type'] else ''
-        experience+=f'<article class="experience-entry"><div class="experience-heading"><h3>{esc(r["company"])}</h3><p class="experience-dates">{esc(r["dates"])}</p></div><div class="job-meta"><p class="job-title">{esc(r["title"])}</p>{kind}</div><p class="job-context">{esc(r["context"])}</p><ul class="responsibilities">'+''.join('<li>'+esc(x)+'</li>' for x in r['responsibilities'])+'</ul>'+tags(r['technologies'])+'</article>'
-    projects=''
-    for project in p['projects']:
-        link=f'<a class="inline-link" href="{esc(project["url"])}" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>' if project['url'] else ''
-        projects+=f'<article class="project-card"><div class="project-heading"><h3>{esc(project["name"])}</h3><p class="project-type">{esc(project["type"])}</p></div><p>{esc(project["description"])}</p><p class="contribution"><strong>Contribution:</strong> {esc(project["contribution"])}</p><div class="project-bottom">{tags(project["technologies"])}{link}</div></article>'
+        years=' – '.join(dict.fromkeys(__import__('re').findall(r'\d{4}',r['dates'])))
+        focus=r.get('focus',focuses[i])
+        responsibilities=''.join('<li>'+esc(x)+'</li>' for x in r['responsibilities'])
+        experience+=f'<article class="experience-entry timeline-{colors[i]}"><div class="career-date"><strong>{esc(years)}</strong><p class="experience-dates">{esc(r["dates"])}</p>{kind}</div><details class="career-card"'+(' open' if i==0 else '')+f'><summary><div class="career-overview"><span class="company-mark" aria-hidden="true">{marks[i]}</span><div class="career-position"><h3>{esc(r["company"])}</h3><p class="job-title">{esc(r["title"])}</p><p class="card-date">{esc(r["dates"])}</p></div><span class="career-focus">{esc(focus)}</span><p class="job-context">{esc(r["context"])}</p></div>'+tags(r['technologies'])+f'<span class="career-toggle"><span class="closed-label">View details</span><span class="open-label">Hide details</span><span aria-hidden="true">⌄</span></span></summary><div class="career-details"><h4>Key contributions</h4><ul class="responsibilities">{responsibilities}</ul></div></details></article>'
     about_facts=''.join(f'<div class="overview-fact">{ui_icon(fact["icon"],"fact-icon")}<div><strong>{esc(fact["value"])}</strong><span>{esc(fact["label"])}</span></div></div>' for fact in p['about_overview']['facts'])
     focus_list='<ul class="focus-list">'+''.join('<li>'+esc(focus)+'</li>' for focus in p['about_overview']['focus'])+'</ul>'
     about_steps=''
@@ -59,7 +61,7 @@ def build_site():
         flag='<span class="language-flag flag-ua" aria-hidden="true"></span>' if language['flag']=='ukrainian' else '<span class="language-flag" aria-hidden="true"><svg viewBox="0 0 60 60"><rect width="60" height="60" fill="#1b4599"/><path d="m0 0 60 60M0 60 60 0" stroke="white" stroke-width="13"/><path d="m0 0 60 60M0 60 60 0" stroke="#dc3045" stroke-width="5"/><path d="M30 0v60M0 30h60" stroke="white" stroke-width="21"/><path d="M30 0v60M0 30h60" stroke="#dc3045" stroke-width="12"/></svg></span>'
         languages+=f'<div class="language-entry">{flag}<div class="language-copy"><h4>{esc(language["name"])}</h4><p>{esc(language["description"])}</p></div>{dots}<p class="language-level">{esc(language["level"])}</p></div>'
     person={'@context':'https://schema.org','@type':'Person','name':p['name'],'jobTitle':p['title'],'url':c['website'],'email':'mailto:'+c['email'],'telephone':c['tel'],'sameAs':[c['github'],c['telegram']],'knowsAbout':['AWS','Kubernetes','Terraform','DevOps','Infrastructure operations'],'alumniOf':[{'@type':'CollegeOrUniversity','name':name} for name in dict.fromkeys(degree['institution'] for degree in p['education'])]}
-    values={**{k:esc(v) for k,v in c.items()},'name':esc(p['name']),'title':esc(p['title']),'it_years':p['it_years'],'devops_years':p['devops_years'],'hero_summary':esc(p['hero_summary']),'specialisms':' · '.join(map(esc,p['specialisms'])),'page_title':esc(p['name']+' | '+p['title']),'description':esc(p['meta']['description']),'navigation':nav,'structured_data':json.dumps(person,ensure_ascii=False).replace('<','\\u003c'),'about_intro':esc(p['about_overview']['intro']),'about_facts':about_facts,'about_focus':focus_list,'about_steps':about_steps,'profile_icon':ui_icon('person','reference-icon'),'education_icon':ui_icon('graduation','reference-icon'),'cap_icon':ui_icon('graduation','panel-icon'),'language_icon':ui_icon('language','panel-icon'),'section_orbits':orbits(),'expertise':expertise,'proficiency_legend':legend,'proficiency_label':esc(p['proficiency']['label']),'experience':experience,'projects':projects,'institution':esc(p['education'][0]['institution']),'education':education,'languages':languages}
+    values={**{k:esc(v) for k,v in c.items()},'name':esc(p['name']),'title':esc(p['title']),'it_years':p['it_years'],'devops_years':p['devops_years'],'hero_summary':esc(p['hero_summary']),'specialisms':' · '.join(map(esc,p['specialisms'])),'page_title':esc(p['name']+' | '+p['title']),'description':esc(p['meta']['description']),'navigation':nav,'structured_data':json.dumps(person,ensure_ascii=False).replace('<','\\u003c'),'about_intro':esc(p['about_overview']['intro']),'about_facts':about_facts,'about_focus':focus_list,'about_steps':about_steps,'profile_icon':ui_icon('person','reference-icon'),'education_icon':ui_icon('graduation','reference-icon'),'cap_icon':ui_icon('graduation','panel-icon'),'language_icon':ui_icon('language','panel-icon'),'section_orbits':orbits(),'expertise':expertise,'proficiency_legend':legend,'proficiency_label':esc(p['proficiency']['label']),'experience':experience,'institution':esc(p['education'][0]['institution']),'education':education,'languages':languages}
     template=(ROOT/'templates/index.html').read_text()
     for key,value in values.items():template=template.replace('{{'+key+'}}',value)
     assert '{{' not in template,'Unresolved template variable'
