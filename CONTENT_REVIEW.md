@@ -25,3 +25,5 @@ The latest image supplies additional personal skills and their levels (including
 The source image does not establish employer-specific use of these additional technologies. No such responsibilities have been added to historical jobs. Detailed on-premises case studies, Ericsson client references, CloudFront, Auto Scaling, Flux and other claims absent from the supplied sources remain excluded until supported.
 
 This file is source documentation and is not deployed as a website page. The public CV contains complete verified career information rather than speculative or placeholder claims.
+
+The owner confirmed the industry overview (banking/financial services, retail/e-commerce, telecommunications, healthcare and blockchain) in the latest content update. These are general professional domains; no additional employer, project or result is inferred.

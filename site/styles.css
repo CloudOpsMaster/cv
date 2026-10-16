@@ -147,3 +147,5 @@
 .company-mark{width:100px;height:56px;padding:7px;background:#fff;border:1px solid #e7eff9;border-radius:9px}
 .company-logo{width:100%;height:100%;object-fit:contain;display:block}
 @media(max-width:767px){.career-overview{grid-template-columns:64px minmax(0,1fr)}.company-mark{width:64px;height:46px;padding:6px}}
+
+.about-step p+p{margin-top:13px}.about-step p strong{font-weight:600;color:var(--text)}

@@ -33,7 +33,7 @@ assert f'<link rel="canonical" href="{p["contact"]["website"]}">' in html
 schema=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>',html,re.S).group(1))
 assert schema['@type']=='Person' and schema['name']==p['name']
 assert not any(k in schema for k in ['address','homeLocation','workLocation'])
-assert 150 <= len(' '.join(p['about']).split()) <= 220,'About length'
+assert 150 <= len(' '.join(p['about']).split()) <= 300,'About length'
 assert 60 <= len(p['pdf_summary'].split()) <= 90,'PDF summary length'
 for f in ['sitemap.xml','robots.txt','.nojekyll','build-info.json','assets/InterVariable.woff2','assets/Inter-LICENSE.txt','assets/social-card.png']:assert (SITE/f).exists(),f
 assert p['contact']['tel']=='+380932441801'

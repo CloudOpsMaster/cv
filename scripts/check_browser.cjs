@@ -85,7 +85,7 @@ async function checkLayout(page, label) {
 
       assert.equal(await page.locator('.expertise-card').count(),profile.skills.length);
       assert.equal(await page.locator('.about-step').count(),profile.about.length,'Structured professional overview');
-      assert.deepEqual(await page.locator('.about-step p').allTextContents(),profile.about,'Professional overview content preserved');
+      assert.deepEqual(await page.locator('.about-step').evaluateAll(steps=>steps.map(step=>[...step.querySelectorAll('p')].map(p=>p.textContent).join('\n\n'))),profile.about,'Professional overview content preserved');
       assert.equal(await page.locator('.overview-fact').count(),4);
       assert.equal(await page.locator('.education-entry').count(),profile.education.length,'Every qualification visible');
       assert.deepEqual(await page.locator('.degree-field').allTextContents(),profile.education.map(degree=>degree.field));

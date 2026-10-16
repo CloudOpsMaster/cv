@@ -49,7 +49,10 @@ def build_site():
     focus_list='<ul class="focus-list">'+''.join('<li>'+esc(focus)+'</li>' for focus in p['about_overview']['focus'])+'</ul>'
     about_steps=''
     for i,(title,paragraph) in enumerate(zip(p['about_overview']['headings'],p['about'])):
-        about_steps+=f'<article class="about-step"><span class="step-number" aria-hidden="true">{i+1:02d}</span>{ui_icon(["cloud","layers","chart","target"][i],"step-icon")}<div><h3>{esc(title)}</h3><p>{esc(paragraph)}</p></div></article>'
+        paragraphs=''.join('<p>'+esc(part)+'</p>' for part in paragraph.split('\n\n'))
+        if i==1:
+            for industry in p['industries']:paragraphs=paragraphs.replace(esc(industry),'<strong>'+esc(industry)+'</strong>')
+        about_steps+=f'<article class="about-step"><span class="step-number" aria-hidden="true">{i+1:02d}</span>{ui_icon(["cloud","layers","chart","target"][i],"step-icon")}<div><h3>{esc(title)}</h3>{paragraphs}</div></article>'
     education=''
     for degree in p['education']:
         labels='<ul class="degree-tags">'+''.join('<li>'+esc(tag)+'</li>' for tag in degree['tags'])+'</ul>'
