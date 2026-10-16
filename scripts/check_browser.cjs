@@ -35,6 +35,7 @@ const sections = ['about', 'expertise', 'experience', 'projects', 'education', '
       assert(await page.locator('.professional-title').isVisible());
       assert.equal(await page.locator('.experience-entry').count(), 7);
       assert.equal(await page.locator('.expertise-card').count(), 7);
+      await page.screenshot({path:path.join(root,'qa',`initial-${width}.png`),fullPage:true});
       const layout = await page.evaluate(() => ({ width: innerWidth, scroll: document.documentElement.scrollWidth, clipped: [...document.querySelectorAll('main h1,main h2,main h3,main p,main li,main a,main dd')].filter(el => {
         const box=el.getBoundingClientRect(); const style=getComputedStyle(el);
         return box.width > 0 && style.visibility !== 'hidden' && (box.right > innerWidth + 1 || box.left < -1);
@@ -42,7 +43,7 @@ const sections = ['about', 'expertise', 'experience', 'projects', 'education', '
       assert(layout.scroll <= width + 1, `Horizontal overflow at ${width}: ${layout.scroll}`);
       assert.deepEqual(layout.clipped, [], `Offscreen text at ${width}`);
       if (width < 768) {
-        const toggle=page.getByRole('button', {name:'Open navigation menu'});
+        const toggle=page.locator('.menu-toggle');
         await toggle.click();
         assert.equal(await toggle.getAttribute('aria-expanded'),'true');
         assert(await page.locator('#mobile-navigation').isVisible());
