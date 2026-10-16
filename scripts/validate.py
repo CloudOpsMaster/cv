@@ -3,6 +3,7 @@ import json, re
 from html.parser import HTMLParser
 from pathlib import Path
 from pypdf import PdfReader
+from content import resume_summary, resume_skill_text
 ROOT=Path(__file__).resolve().parents[1];SITE=ROOT/'site'
 p=json.loads((ROOT/'data/profile.json').read_text())
 class Document(HTMLParser):
@@ -35,7 +36,7 @@ assert schema['@type']=='Person' and schema['name']==p['name']
 assert not any(k in schema for k in ['address','homeLocation','workLocation'])
 assert 100 <= len(' '.join(p['about']).split()) <= 300,'About length'
 assert 'Current interests' not in html and 'class="step-number"' not in html
-assert 60 <= len(p['pdf_summary'].split()) <= 90,'PDF summary length'
+assert 60 <= len(resume_summary(p).split()) <= 90,'PDF summary length'
 for f in ['sitemap.xml','robots.txt','.nojekyll','build-info.json','assets/InterVariable.woff2','assets/Inter-LICENSE.txt','assets/social-card.png']:assert (SITE/f).exists(),f
 assert p['contact']['tel']=='+380932441801'
 assert p['contact']['whatsapp']=='https://wa.me/380932441801'
@@ -59,6 +60,12 @@ for page in pdf.pages:
         font=font.get_object();descriptor=font.get('/FontDescriptor')
         assert descriptor and descriptor.get_object().get('/FontFile2'),'All PDF fonts must be embedded TrueType'
 combined=' '.join(texts);flat=' '.join(combined.split())
+assert ' '.join(resume_summary(p).split()) in flat, 'Current PDF summary'
+for industry in p['industries']:assert industry in html.replace('&amp;','&') and industry in flat
+for selection in p['pdf_skills']:
+    assert ' '.join(resume_skill_text(p,selection).split()) in flat, selection['label']+' shared skill levels'
+all_uris=[str(a.get_object()['/A'].get('/URI','')) for page in pdf.pages for a in page.get('/Annots',[]) if a.get_object().get('/A')]
+for uri in [p['contact']['website'],p['contact']['github'],p['contact']['telegram'],'mailto:'+p['contact']['email'],'tel:'+p['contact']['tel'],p['contact']['whatsapp'],p['contact']['viber']]:assert uri in all_uris, uri
 assert 'ECTS' not in combined and 'Selected project' not in combined
 assert 'Hetzner Cloud' in combined
 assert 'linkedin' not in combined.lower()
@@ -70,7 +77,10 @@ assert p['contact']['phone'] in texts[0]
 assert all(level in texts[0] for level in levels)
 uris=[str(a.get_object()['/A'].get('/URI','')) for a in pdf.pages[0].get('/Annots',[]) if a.get_object().get('/A')]
 assert p['contact']['whatsapp'] in uris and p['contact']['viber'] in uris
+for language in p['languages']:
+    assert language['name']+' — '+language['level'] in flat
 for degree in p['education']:
+    assert degree['qualification']+' — '+degree['field'] in flat
     assert ' '.join(degree['field'].split()) in flat
     assert ' '.join(degree['institution'].split()) in flat
     assert degree['dates'] in combined

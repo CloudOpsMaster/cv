@@ -10,6 +10,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether, Table, TableStyle
 import reportlab
+from content import resume_summary, resume_skill_text
 ROOT=Path(__file__).resolve().parents[1]
 NAVY=colors.HexColor('#14213D');BLUE=colors.HexColor('#2563EB');MUTED=colors.HexColor('#52647A')
 def e(s): return escape(s)
@@ -33,14 +34,14 @@ def build_pdf():
         parts.extend(P('• '+e(b),bullet) for b in r['pdf_bullets'])
         parts.append(Spacer(1,2))
         return KeepTogether(parts)
-    story=[P(e(p['name']),ParagraphStyle('name',fontName='CV-Bold',fontSize=23,leading=29,textColor=NAVY,spaceAfter=5)),P(e(p['title']),style('title',11,15,spaceAfter=6)),P('<link href="'+e(c['website'])+'" color="#2563EB">'+e(c['website'])+'</link>',style('website',9.5,13,spaceAfter=5)),P('<link href="tel:'+c['tel']+'">'+e(c['phone'])+'</link> | <link href="'+e(c['whatsapp'])+'">WhatsApp</link> | <link href="'+e(c['viber'])+'">Viber</link> | <link href="mailto:'+e(c['email'])+'">'+e(c['email'])+'</link>',small),P('<link href="'+e(c['github'])+'">'+e(c['github'])+'</link> | <link href="'+e(c['telegram'])+'">'+e(c['telegram'])+'</link>',small),heading('Professional summary'),P(e(p['pdf_summary'])),P('<font color="#2563EB"><b>Core focus:</b></font> '+e(' · '.join(p['about_overview']['focus'])),style('focus',8.4,11.5,spaceAfter=3)),heading('Skills & Technology Matrix')]
+    story=[P(e(p['name']),ParagraphStyle('name',fontName='CV-Bold',fontSize=23,leading=29,textColor=NAVY,spaceAfter=5)),P(e(p['title']),style('title',11,15,spaceAfter=6)),P('<link href="'+e(c['website'])+'" color="#2563EB">'+e(c['website'])+'</link>',style('website',9.5,13,spaceAfter=5)),P('<link href="tel:'+c['tel']+'">'+e(c['phone'])+'</link> | <link href="'+e(c['whatsapp'])+'">WhatsApp</link> | <link href="'+e(c['viber'])+'">Viber</link> | <link href="mailto:'+e(c['email'])+'">'+e(c['email'])+'</link>',small),P('<link href="'+e(c['github'])+'">'+e(c['github'])+'</link> | <link href="'+e(c['telegram'])+'">'+e(c['telegram'])+'</link>',small),heading('Professional summary'),P(e(resume_summary(p))),P('<font color="#2563EB"><b>Core focus:</b></font> '+e(' · '.join(p['about_overview']['focus'])),style('focus',8.4,11.5,spaceAfter=3)),heading('Skills & Technology Matrix')]
     story.append(P('Self-assessed proficiency: Expert · Advanced · Intermediate · Basic',style('legend',8,10,spaceAfter=6)))
     matrix_style=style('matrix',8.4,11.3)
     matrix_label=ParagraphStyle('matrix-label',parent=matrix_style,fontName='CV-Bold')
     level_colors={'Expert':'#1d4ed8','Advanced':'#2563eb','Intermediate':'#0f766e','Basic':'#b45309'}
     matrix_rows=[]
     for skill in p['pdf_skills']:
-        text=e(skill['text'])
+        text=e(resume_skill_text(p,skill))
         for level,color in level_colors.items():text=text.replace(level,'<font color="'+color+'">'+level+'</font>')
         matrix_rows.append([P(e(skill['label']),matrix_label),P(text,matrix_style)])
     matrix=Table(matrix_rows,colWidths=[104,393],hAlign='LEFT')

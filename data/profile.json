@@ -23,7 +23,7 @@
     "secondary_tel": "+37361039001"
   },
   "hero_summary": "IT professional with over 12 years of experience, including more than 7 years in DevOps and cloud infrastructure engineering. Experienced in designing, automating and maintaining production environments, improving CI/CD processes and supporting reliable enterprise platforms. Combines hands-on infrastructure expertise with technical coordination and team leadership experience.",
-  "pdf_summary": "IT infrastructure and DevOps professional with 12+ years in IT, including 7+ years in DevOps and cloud infrastructure. Experience spans AWS, Kubernetes, infrastructure as code, CI/CD and production reliability. Previously led systems administration teams and coordinated enterprise infrastructure work. Combines hands-on automation and troubleshooting with cross-functional collaboration, technical documentation and release support across enterprise IT and financial services and business-critical production environments.",
+  "pdf_summary": "IT infrastructure and DevOps professional with 12+ years in IT, including 7+ years in DevOps and cloud infrastructure. Hands-on experience with AWS, Kubernetes, infrastructure automation, CI/CD and production reliability. Previously led systems administration engineers and coordinated infrastructure work. Industry experience spans {industries}. Supports business-critical platforms and cloud modernization through practical engineering, troubleshooting, technical documentation and collaboration across development and operations teams.",
   "about": [
     "I am a DevOps and cloud infrastructure professional with more than 12 years of experience in IT, including over 7 years in DevOps, infrastructure automation and production environments. My background connects traditional systems administration with cloud engineering, container orchestration and operational reliability.",
     "My professional experience spans multiple industries, including Banking & Financial Services, Retail & E-commerce, Telecommunications, Healthcare, and Blockchain.\n\nI have contributed to enterprise-scale technology projects, supporting business-critical platforms, cloud infrastructure modernization, system reliability, and infrastructure automation across diverse operational environments.",
@@ -721,39 +721,178 @@
   "pdf_skills": [
     {
       "label": "Cloud Platforms",
-      "text": "AWS (Expert); Azure (Advanced); GCP, Hetzner Cloud (Intermediate)"
+      "theme": "cloud",
+      "items": [
+        {
+          "name": "AWS"
+        },
+        {
+          "name": "Azure"
+        },
+        {
+          "name": "GCP"
+        },
+        {
+          "name": "Hetzner Cloud"
+        }
+      ]
     },
     {
       "label": "Containers",
-      "text": "Kubernetes (Expert); EKS, Docker, Helm / Helmfile (Advanced)"
+      "theme": "containers",
+      "items": [
+        {
+          "name": "Kubernetes"
+        },
+        {
+          "name": "Amazon EKS",
+          "label": "EKS"
+        },
+        {
+          "name": "Docker"
+        },
+        {
+          "name": "Helm / Helmfile"
+        }
+      ]
     },
     {
       "label": "IaC & Automation",
-      "text": "Terraform (Expert); Ansible, Bash, Python (Advanced)"
+      "theme": "automation",
+      "items": [
+        {
+          "name": "Terraform"
+        },
+        {
+          "name": "Ansible"
+        },
+        {
+          "name": "Bash"
+        },
+        {
+          "name": "Python"
+        }
+      ]
     },
     {
       "label": "CI/CD & DevOps",
-      "text": "Jenkins (Expert); GitLab CI, GitHub Actions (Advanced); Gradle (Basic)"
+      "theme": "delivery",
+      "items": [
+        {
+          "name": "Jenkins"
+        },
+        {
+          "name": "GitLab CI"
+        },
+        {
+          "name": "GitHub Actions"
+        },
+        {
+          "name": "Gradle"
+        }
+      ]
     },
     {
       "label": "Observability",
-      "text": "Prometheus, Grafana (Expert); Alertmanager, Loki, ELK, Zabbix (Advanced)"
+      "theme": "observability",
+      "items": [
+        {
+          "name": "Prometheus"
+        },
+        {
+          "name": "Grafana"
+        },
+        {
+          "name": "Alertmanager"
+        },
+        {
+          "name": "Loki"
+        },
+        {
+          "name": "ELK"
+        },
+        {
+          "name": "Zabbix"
+        }
+      ]
     },
     {
       "label": "Systems & Databases",
-      "text": "Linux (Expert); Windows, networking, PostgreSQL, MySQL (Advanced)"
+      "theme": "systems",
+      "items": [
+        {
+          "name": "Linux (Ubuntu/CentOS/SUSE)",
+          "label": "Linux"
+        },
+        {
+          "name": "Windows Server"
+        },
+        {
+          "name": "Networking"
+        },
+        {
+          "name": "PostgreSQL"
+        },
+        {
+          "name": "MySQL / MariaDB"
+        }
+      ]
     },
     {
       "label": "Security & Access",
-      "text": "IAM, Security Groups (Advanced); Vault, Ranger (Intermediate)"
+      "theme": "security",
+      "items": [
+        {
+          "name": "IAM"
+        },
+        {
+          "name": "Security Groups"
+        },
+        {
+          "name": "Vault"
+        },
+        {
+          "name": "Ranger"
+        }
+      ]
     },
     {
       "label": "AI & Agents",
-      "text": "Copilot, ChatGPT, Claude (Advanced); LangChain, automation agents (Intermediate)"
+      "theme": "ai",
+      "items": [
+        {
+          "name": "GitHub Copilot"
+        },
+        {
+          "name": "ChatGPT"
+        },
+        {
+          "name": "Claude"
+        },
+        {
+          "name": "AI Agents (LangChain)",
+          "label": "LangChain agents"
+        },
+        {
+          "name": "Automation Agents",
+          "label": "automation agents"
+        }
+      ]
     },
     {
       "label": "Operations",
-      "text": "Incident management, change/release (Advanced); team leadership (Intermediate)"
+      "theme": "leadership",
+      "items": [
+        {
+          "name": "Incident Management"
+        },
+        {
+          "name": "Change & Release"
+        },
+        {
+          "name": "Team Leadership"
+        }
+      ]
     }
   ],
   "proficiency": {

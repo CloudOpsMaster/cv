@@ -29,3 +29,5 @@ This file is source documentation and is not deployed as a website page. The pub
 The owner confirmed the industry overview (banking/financial services, retail/e-commerce, telecommunications, healthcare and blockchain) in the latest content update. These are general professional domains; no additional employer, project or result is inferred.
 
 Portrait update: owner-provided me.png; web copy encoded as JPEG at 768px. Head-and-shoulders framing uses CSS with no generative edits. Original remains local. PDF remains photo-free.
+
+Resume audit: synchronized the PDF industry summary with the owner-confirmed website industries and replaced independent skill text with references to the shared matrix. PDF names explicitly identify Windows Server and GitHub Copilot; levels are taken directly from the website source. Contacts, all seven roles and dates, education and languages are unchanged.
