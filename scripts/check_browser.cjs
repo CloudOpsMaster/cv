@@ -15,6 +15,7 @@ const viewports = [
   {width:1280,height:720}, {width:1440,height:900}, {width:1920,height:1080},
   {width:2560,height:1440}
 ];
+const profile = require('../data/profile.json');
 const sections = ['about', 'expertise', 'experience', 'projects', 'education', 'contact'];
 async function checkLayout(page, label) {
   const layout = await page.evaluate(() => {
@@ -58,6 +59,18 @@ async function checkLayout(page, label) {
       assert(!/Moldova|\bLocation\b|Senior DevOps|Infrastructure Operations \| Technical Leadership \| Cloud & Platform Engineering/i.test(await page.locator('body').innerText()),'Removed profile claims must stay absent');
       assert.equal(await page.locator('.experience-entry').count(),7);
       assert.equal(await page.locator('.expertise-card').count(),7);
+      assert.equal(await page.locator('.matrix-row').count(),profile.skills.length);
+      assert.deepEqual(await page.locator('.expertise-technologies li').allTextContents(),profile.skills.flatMap(skill=>skill.technologies),'Matrix preserves all technologies');
+      const firstDetail=page.locator('.expertise-detail').first();
+      await firstDetail.locator('summary').click();
+      assert(await firstDetail.locator('.expertise-description').isVisible(),'Matrix description opens');
+      await firstDetail.locator('summary').press('Enter');
+      assert.equal(await firstDetail.evaluate(el=>el.open),false,'Matrix supports keyboard toggling');
+      await page.locator('.expertise-detail').evaluateAll(items=>items.forEach(el=>el.open=true));
+      await checkLayout(page,label+' expanded expertise matrix');
+      await page.locator('.expertise-detail').evaluateAll(items=>items.forEach(el=>el.open=false));
+      if([390,1440].includes(width))await page.locator('#expertise').screenshot({path:path.join(root,'qa',`${engine}-matrix-${width}.png`)});
+
       assert(await page.evaluate(()=>[...document.images].every(img=>img.complete&&img.naturalWidth>0)),'Images load');
       assert(await page.evaluate(()=>document.fonts.check('16px Inter')),'Self-hosted font loads');
       await checkLayout(page,label);
