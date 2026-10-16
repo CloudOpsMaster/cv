@@ -149,3 +149,9 @@
 @media(max-width:767px){.career-overview{grid-template-columns:64px minmax(0,1fr)}.company-mark{width:64px;height:46px;padding:6px}}
 
 .about-step p+p{margin-top:13px}.about-step p strong{font-weight:600;color:var(--text)}
+
+/* The professional overview uses icons without numbered steps. */
+.about-step{grid-template-columns:42px minmax(0,1fr)}.about-step::before,.about-step::after{display:none}
+@media(max-width:1100px){.about-step{grid-template-columns:38px minmax(0,1fr)}}
+@media(max-width:767px){.about-step{grid-template-columns:36px minmax(0,1fr)}}
+@media(max-width:639px){.about-step{grid-template-columns:minmax(0,1fr)}.about-step>div{grid-column:1}}
