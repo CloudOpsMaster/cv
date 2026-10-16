@@ -73,7 +73,7 @@ async function checkLayout(page, label) {
       assert(portrait.width<=portrait.natural+1,'Portrait CSS size does not exceed source resolution');
       assert.equal(portrait.fit,'cover');
       if([390,1440].includes(width)) {
-        for(const section of ['about','education'])await page.locator('#'+section).screenshot({path:path.join(root,'qa',`${engine}-${section}-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
+        for(const section of ['about','education'])await page.locator('#'+section).screenshot({scale:'css',path:path.join(root,'qa',`${engine}-${section}-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
       }
 
       assert.equal(await page.locator('.proficiency-card').count(),profile.skills.length);
@@ -84,7 +84,7 @@ async function checkLayout(page, label) {
       assert.equal(await page.locator('.phone-contact .primary-phone').getAttribute('href'),'tel:'+profile.contact.tel);
       assert.equal(await page.locator('.phone-contact a').filter({hasText:'WhatsApp'}).getAttribute('href'),profile.contact.whatsapp);
       assert.equal(await page.locator('.phone-contact a').filter({hasText:'Viber'}).getAttribute('href'),profile.contact.viber);
-      if([390,1440].includes(width))await page.locator('#expertise').screenshot({path:path.join(root,'qa',`${engine}-matrix-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
+      if([390,1440].includes(width))await page.locator('#expertise').screenshot({scale:'css',path:path.join(root,'qa',`${engine}-matrix-${width}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
 
       assert(await page.evaluate(()=>[...document.images].every(img=>img.complete&&img.naturalWidth>0)),'Images load');
       assert(await page.evaluate(()=>document.fonts.check('16px Inter')),'Self-hosted font loads');
@@ -131,8 +131,8 @@ async function checkLayout(page, label) {
       await page.goto(url);await page.evaluate(()=>document.fonts.ready);
       await page.waitForTimeout(100);
       if(width>=768)assert.equal(await page.locator('.desktop-nav a[aria-current]').count(),0,'Profile navigation state');
-      await page.screenshot({path:path.join(root,'qa',`${engine}-hero-${width}x${height}.png`)});
-      if([320,390,768,1440,2560].includes(width))await page.screenshot({path:path.join(root,'qa',`${engine}-full-${width}.png`),fullPage:true});
+      await page.screenshot({scale:'css',path:path.join(root,'qa',`${engine}-hero-${width}x${height}.png`)});
+      if([320,390,768,1440,2560].includes(width))await page.screenshot({scale:'css',path:path.join(root,'qa',`${engine}-full-${width}.png`),fullPage:true});
       assert.deepEqual(errors,[],label+' JavaScript errors');assert.deepEqual(failed,[],label+' HTTP errors');
       report.viewports.push({width,height,layout:'passed',navigation:'passed',pdfDownload:'passed',accessibility:'passed',javascript:'passed'});
       await context.close();
@@ -142,7 +142,7 @@ async function checkLayout(page, label) {
     const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
     await page.goto(url);await page.evaluate(()=>document.fonts.ready);
     await page.locator('.menu-toggle').click();
-    await page.screenshot({path:path.join(root,'qa',`${engine}-mobile-menu.png`)});
+    await page.screenshot({scale:'css',path:path.join(root,'qa',`${engine}-mobile-menu.png`)});
     await page.setViewportSize({width:1024,height:768});
     await page.waitForFunction(()=>document.querySelector('#mobile-navigation').hidden);
     await page.setViewportSize({width:390,height:844});

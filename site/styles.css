@@ -98,8 +98,8 @@
 .panel-title{display:flex;align-items:center;gap:12px;font-size:21px;font-weight:650;line-height:1.5;letter-spacing:-.4px;margin-bottom:22px}
 .panel-icon{width:35px;height:35px;flex-basis:35px;border-radius:9px}.panel-icon svg{width:25px;height:25px}
 .education-timeline{position:relative}
-.education-entry{display:grid;grid-template-columns:75px 13px minmax(0,1fr);column-gap:12px;position:relative;padding-bottom:23px;min-width:0}
-.education-entry:not(:last-child)::before{content:'';position:absolute;left:93px;top:12px;bottom:0;border-left:1px solid #d8e8fc}
+.education-entry{display:grid;grid-template-columns:90px 13px minmax(0,1fr);column-gap:12px;position:relative;padding-bottom:23px;min-width:0}
+.education-entry:not(:last-child)::before{content:'';position:absolute;left:108px;top:12px;bottom:0;border-left:1px solid #d8e8fc}
 .education-entry:last-child{padding-bottom:0}
 .education-dates{font-size:12px;line-height:1.9;color:var(--muted);padding-top:1px;white-space:nowrap}
 .education-dot{position:relative;z-index:1;display:block;width:10px;height:10px;border-radius:50%;background:#0878f6;border:2px solid white;box-shadow:0 0 0 3px #e2f0ff;margin-top:7px}
@@ -124,3 +124,8 @@
 @media(max-width:359px){.overview-card{padding:17px;grid-template-columns:1fr;gap:18px}.overview-fact{align-items:center;gap:13px}.core-focus{grid-column:1}.focus-list{grid-template-columns:1fr}.reference-heading h2{font-size:24px}.reference-heading .reference-intro{font-size:14px}.academic-panel,.languages-panel{padding:18px}.language-dots{gap:5px}.language-dots i{width:10px;height:10px}.language-level{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.section-orbits *{animation:none}}
 @media print{.section-orbits{display:none}.about-layout,.education-layout{grid-template-columns:1fr}.overview-card,.academic-panel,.languages-panel{box-shadow:none;break-inside:avoid}}
+
+/* Keep language indicators in normal flow at every card width. */
+.language-entry{grid-template-columns:30px minmax(0,1fr) auto}
+.language-copy{grid-column:2 / 4}
+.language-level{position:static;grid-column:3;grid-row:2;align-self:center}
