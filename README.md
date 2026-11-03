@@ -11,7 +11,7 @@ A static, accessible professional CV with detailed career information, a nine-ca
 - `templates/index.html`: semantic page structure, reference-based professional overview and academic/language panels.
 - `scripts/visuals.py`: code-native decorative icons for those panels.
 - `site/styles.css`, `site/app.js`: responsive design, navigation and optional motion.
-- `site/assets`: authentic portrait, self-hosted Inter font and its license, favicon, generated social card and self-hosted technology logos. Icon provenance is recorded in `site/assets/skills/ATTRIBUTION.txt`.
+- `site/assets`: authentic portrait, self-hosted Inter font and its license, favicon, generated social card and self-hosted company and technology logos. Company logo sources are recorded in `site/assets/companies/ATTRIBUTION.txt`; technology icon provenance is recorded in `site/assets/skills/ATTRIBUTION.txt`.
 - `scripts/build.py`: generates the website, metadata, sitemap, robots file and social image.
 - `scripts/build_pdf.py`: generates the resume with embedded Bitstream Vera fonts supplied by ReportLab.
 - `scripts/validate.py`: checks content consistency, local links, two A4 pages, PDF links and embedded fonts.

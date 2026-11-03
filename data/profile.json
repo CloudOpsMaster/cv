@@ -31,7 +31,7 @@
   ],
   "roles": [
     {
-      "company": "GlobalLogic",
+      "company": "Hitachi",
       "title": "DevOps Engineer",
       "dates": "May 2022 – Jun 2026",
       "employment_type": "",
@@ -59,7 +59,7 @@
         "Python",
         "Groovy"
       ],
-      "logo": "assets/companies/globallogic.png"
+      "logo": "assets/companies/hitachi.svg"
     },
     {
       "company": "West Auto Hub",

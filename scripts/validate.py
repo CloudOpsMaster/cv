@@ -35,6 +35,8 @@ schema=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>
 assert schema['@type']=='Person' and schema['name']==p['name']
 assert not any(k in schema for k in ['address','homeLocation','workLocation'])
 assert 100 <= len(' '.join(p['about']).split()) <= 300,'About length'
+assert p['roles'][0]['company']=='Hitachi','Current employer name'
+assert p['roles'][0]['logo']=='assets/companies/hitachi.svg','Current employer logo'
 assert 'Current interests' not in html and 'class="step-number"' not in html
 assert 60 <= len(resume_summary(p).split()) <= 90,'PDF summary length'
 for f in ['sitemap.xml','robots.txt','.nojekyll','build-info.json','assets/InterVariable.woff2','assets/Inter-LICENSE.txt','assets/social-card.png']:assert (SITE/f).exists(),f

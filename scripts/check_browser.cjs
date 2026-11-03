@@ -56,6 +56,9 @@ async function checkLayout(page, label) {
       await page.evaluate(()=>document.fonts.ready);
       await page.getByRole('heading',{name:'Vadym Pyrozhenko',exact:true}).waitFor();
       assert.equal(await page.locator('.professional-title').innerText(),'Cloud Infrastructure & DevOps Professional');
+      assert.equal(profile.roles[0].company,'Hitachi');
+      assert.equal(await page.locator('.career-card').first().locator('.career-position h3').innerText(),'Hitachi');
+      assert.equal(profile.roles[0].logo,'assets/companies/hitachi.svg');
       assert(!/Moldova|\bLocation\b|Senior DevOps|Infrastructure Operations \| Technical Leadership \| Cloud & Platform Engineering/i.test(await page.locator('body').innerText()),'Removed profile claims must stay absent');
       assert.equal(await page.locator('.experience-entry').count(),7);
       assert.equal(await page.locator('#projects').count(),0,'Selected work removed');
