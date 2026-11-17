@@ -31,6 +31,7 @@ def build_pdf():
     def role(r):
         kind=' ('+r['employment_type']+')' if r['employment_type'] else ''
         parts=[P(e(r['company']+' | '+r['title']+kind),role_style),P(e(r['dates']),small)]
+        parts.extend(P(e(period['dates']+' ('+period['duration']+')'),small) for period in r.get('periods', []))
         parts.extend(P('• '+e(b),bullet) for b in r['pdf_bullets'])
         parts.append(Spacer(1,2))
         return KeepTogether(parts)

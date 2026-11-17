@@ -31,23 +31,19 @@
   ],
   "roles": [
     {
-      "company": "Hitachi",
-      "title": "DevOps Engineer",
-      "dates": "May 2022 – Jun 2026",
+      "company": "Hitachi Digital",
+      "title": "DevOps Engineer | Cloud & Platform Infrastructure",
+      "dates": "May 2022 – Oct 2026",
       "employment_type": "",
-      "context": "Customer engineering environments with established CI/CD and production release processes.",
-      "responsibilities": [
-        "Maintained CI/CD and release workflows across customer projects using Jenkins, GitLab CI, Gerrit, SonarQube and Spinnaker.",
-        "Automated infrastructure provisioning and operational tasks with Terraform, Ansible, Bash, Python and Groovy.",
-        "Worked with development teams to troubleshoot infrastructure, validate changes and support production releases.",
-        "Maintained infrastructure, deployment and operational documentation for engineering teams."
-      ],
+      "context": "Cloud infrastructure, platform engineering and CI/CD support across two customer assignments.",
+      "responsibilities": [],
       "pdf_bullets": [
-        "Maintained CI/CD and release workflows across customer projects using Jenkins, GitLab CI, Gerrit, SonarQube and Spinnaker.",
-        "Automated infrastructure provisioning and operational tasks with Terraform, Ansible, Bash, Python and Groovy.",
-        "Worked with development teams to troubleshoot infrastructure, validate changes and support production releases."
+        "Developed Helm charts and supported CI/CD; managed, upgraded and optimized Jenkins, Gerrit and SonarQube.",
+        "Built customer AWS infrastructure, maintained delivery pipelines and migrated environments to AWS."
       ],
       "technologies": [
+        "AWS",
+        "Helm",
         "Jenkins",
         "GitLab CI",
         "Gerrit",
@@ -57,9 +53,37 @@
         "Ansible",
         "Bash",
         "Python",
-        "Groovy"
+        "Groovy",
+        "Amazon Q",
+        "Kira-CLI"
       ],
-      "logo": "assets/companies/hitachi.svg"
+      "logo": "assets/companies/hitachi-digital.png",
+      "duration": "4 years 6 months",
+      "periods": [
+        {
+          "dates": "Jan 2023 – Oct 2026",
+          "duration": "3 years 10 months",
+          "responsibilities": [
+            "Developed Helm charts, implemented solution features and fixed defects in deployment code.",
+            "Supported deployment processes, CI/CD workflows and production engineering teams.",
+            "Managed and upgraded SonarQube, Gerrit and Jenkins servers, maintaining platform stability and functionality.",
+            "Configured and optimized Jenkins servers to streamline continuous integration.",
+            "Maintained product support documentation and technical guidance for development teams.",
+            "Used Amazon Q and Kira-CLI to improve development and operational efficiency."
+          ]
+        },
+        {
+          "dates": "May 2022 – Jan 2023",
+          "duration": "9 months",
+          "responsibilities": [
+            "Worked within a DevOps team to build and support customer infrastructure in AWS.",
+            "Designed AWS infrastructure with scalability, reliability and security in mind.",
+            "Developed and maintained CI/CD pipelines for automated deployments.",
+            "Migrated customer environments to AWS, supporting service continuity and minimizing downtime.",
+            "Maintained infrastructure and deployment documentation."
+          ]
+        }
+      ]
     },
     {
       "company": "West Auto Hub",
@@ -68,14 +92,14 @@
       "employment_type": "Contract",
       "context": "Managed and modernized production infrastructure supporting PHP/Laravel applications, with a focus on cloud migration, infrastructure reliability, deployment operations and service continuity.",
       "responsibilities": [
-        "Planned and executed the migration of application infrastructure from on-premises environments to Hetzner Cloud, supporting the transition of production services to cloud-hosted infrastructure.",
+        "Migrated application infrastructure from KVM to Hetzner Cloud VMs, including application and database migrations for PHP/Laravel production services.",
         "Configured and maintained Linux-based application environments using Nginx, MySQL, Redis and Elasticsearch.",
         "Supported application and database migration activities, including infrastructure configuration, deployment validation and post-migration troubleshooting.",
         "Managed deployment operations, monitoring, backup processes and incident resolution to maintain production service reliability.",
         "Collaborated with application stakeholders to coordinate infrastructure changes and minimize operational disruption during migration."
       ],
       "pdf_bullets": [
-        "Migrated application infrastructure from on-premises environments to Hetzner Cloud, supporting PHP/Laravel production services.",
+        "Migrated KVM application infrastructure and databases to Hetzner Cloud VMs for PHP/Laravel services.",
         "Configured Linux, Nginx, MySQL, Redis and Elasticsearch; supported deployment validation, monitoring, backups and migration troubleshooting."
       ],
       "technologies": [
@@ -101,7 +125,9 @@
       "context": "AWS production infrastructure, container deployments and delivery automation.",
       "responsibilities": [
         "Built AWS infrastructure for production workloads and automated provisioning with Terraform and Ansible.",
-        "Managed Kubernetes and Helm deployments and delivery workflows across GitHub, GitLab, Jenkins and TeamCity."
+        "Managed Kubernetes and Helm deployments and delivery workflows across GitHub, GitLab, Jenkins and TeamCity.",
+        "Configured monitoring and alerting to support production availability.",
+        "Automated operational tasks with Bash and Python."
       ],
       "pdf_bullets": [
         "Built AWS infrastructure for production workloads and automated provisioning with Terraform and Ansible.",
@@ -116,24 +142,31 @@
         "GitHub",
         "GitLab",
         "Jenkins",
-        "TeamCity"
+        "TeamCity",
+        "Monitoring",
+        "Alerting",
+        "Bash",
+        "Python"
       ],
       "logo": "assets/companies/midcontract.svg"
     },
     {
       "company": "PrivatBank",
-      "title": "DevOps",
+      "title": "DevOps Engineer | Cloud Infrastructure & Migration",
       "dates": "Dec 2021 – Jul 2022",
       "employment_type": "",
       "context": "Cloud and container platform modernization, including the transition from OKD to Amazon EKS.",
       "responsibilities": [
-        "Supported the migration of services from OKD to AWS EKS, including deployment validation.",
-        "Configured Linux, Nginx, networking, monitoring and Terraform infrastructure; automated CRM application and database deployments.",
-        "Investigated application and infrastructure issues with engineering teams during platform changes."
+        "Independently migrated application workloads and infrastructure components from OpenShift OKD to Amazon EKS.",
+        "Designed and configured AWS infrastructure for application deployment and production workloads.",
+        "Prepared physical servers and maintained Linux environments for enterprise applications.",
+        "Configured Nginx as a reverse proxy and load balancer; supported Java applications and Apache Tomcat.",
+        "Automated database maintenance, backups and routine administration with Bash scripts.",
+        "Configured monitoring, supported CI/CD pipelines and contributed to infrastructure modernization."
       ],
       "pdf_bullets": [
-        "Supported the migration of services from OKD to AWS EKS, including deployment validation.",
-        "Configured Linux, Nginx, networking, monitoring and Terraform infrastructure; automated CRM application and database deployments."
+        "Independently migrated workloads and infrastructure from OpenShift OKD to Amazon EKS.",
+        "Configured AWS, Linux and Nginx; supported Java/Tomcat and automated maintenance and backups with Bash."
       ],
       "technologies": [
         "AWS EKS",
@@ -142,70 +175,89 @@
         "Linux",
         "Nginx",
         "Networking",
-        "Monitoring"
+        "Monitoring",
+        "Bash",
+        "Docker",
+        "Kubernetes",
+        "Apache Tomcat",
+        "Java",
+        "CI/CD",
+        "Physical Servers"
       ],
       "logo": "assets/companies/privatbank.svg"
     },
     {
       "company": "UAPAY",
-      "title": "Technical Integration Engineer",
+      "title": "Technical Integration Engineer | Infrastructure & Automation",
       "dates": "Aug 2020 – Dec 2021",
       "employment_type": "",
-      "context": "Technical integration and onboarding for payment and financial services.",
+      "context": "Independent technical integration, infrastructure support and automation in a financial technology environment.",
       "responsibilities": [
-        "Integrated customer infrastructure and financial services with company systems and supported technical onboarding.",
-        "Worked on payment monitoring, automated reporting, service deployment and integration documentation.",
-        "Coordinated integration issue resolution with internal engineering teams."
+        "Integrated payment services with external systems and customer infrastructure.",
+        "Configured and maintained technical components for payment integrations in Linux environments.",
+        "Monitored payment systems, investigated issues and troubleshot infrastructure and application integrations.",
+        "Automated operational tasks and reporting with Bash and Python; analyzed system performance.",
+        "Supported CI/CD and deployment processes, maintained documentation and improved operational workflows."
       ],
       "pdf_bullets": [
-        "Integrated customer infrastructure and financial services with company systems and supported technical onboarding.",
-        "Worked on payment monitoring, automated reporting, service deployment and integration documentation."
+        "Integrated payment services with customer infrastructure and supported Linux-based environments.",
+        "Automated operations and reporting with Bash/Python; supported monitoring, troubleshooting and CI/CD."
       ],
       "technologies": [
         "Payment integrations",
         "Monitoring",
         "Deployment",
-        "Automated reporting"
+        "Automated reporting",
+        "Linux",
+        "Bash",
+        "Python",
+        "CI/CD",
+        "Network Services"
       ],
       "logo": "assets/companies/uapay.svg"
     },
     {
-      "company": "Namecheap Inc",
-      "title": "Site Reliability Engineer",
-      "dates": "Mar 2020 – Jun 2020",
+      "company": "Namecheap, Inc",
+      "title": "Site Reliability Engineer | Production Operations & Incident Response",
+      "dates": "Mar 2020 – Jul 2020",
       "employment_type": "",
       "context": "Production service reliability, incident investigation and operational automation.",
       "responsibilities": [
-        "Supported production reliability through monitoring, incident response, performance analysis and root-cause investigation.",
-        "Automated recurring operational tasks and collaborated with engineers to resolve service issues."
+        "Performed on-call duties and responded to production alerts and incidents.",
+        "Monitored service availability, infrastructure health, capacity and system performance.",
+        "Investigated operational issues, performed initial troubleshooting and helped restore service.",
+        "Followed incident response procedures, escalated issues and supported routine operational maintenance."
       ],
       "pdf_bullets": [
-        "Supported production reliability through monitoring, incident response, performance analysis and root-cause investigation.",
-        "Automated recurring operational tasks and collaborated with engineers to resolve service issues."
+        "Performed on-call monitoring, incident response and initial troubleshooting for production services."
       ],
       "technologies": [
+        "On-call Operations",
+        "Incident Response",
         "Monitoring",
-        "Incident response",
-        "Root-cause analysis",
-        "Automation"
+        "Linux",
+        "Troubleshooting",
+        "Service Availability"
       ],
       "logo": "assets/companies/namecheap.svg"
     },
     {
       "company": "Fozzy Group",
-      "title": "Team Lead System Administrator",
+      "title": "Team Lead, IT Infrastructure & Systems Administration",
       "dates": "Sep 2015 – Mar 2020",
       "employment_type": "",
       "context": "Enterprise IT operations, data center infrastructure and systems administration team leadership.",
       "responsibilities": [
-        "Led infrastructure engineers and coordinated vendors and contractors for enterprise IT operations.",
-        "Managed data center infrastructure, VMware/Hyper-V, Windows Server, SQL systems, networking and monitoring.",
-        "Planned infrastructure work, supported budgeting and capacity planning, and reported operational status."
+        "Led a team of 7 infrastructure and systems administration engineers, coordinating daily operations, task allocation and technical priorities.",
+        "Managed data center infrastructure, physical servers, racks and VMware/Hyper-V virtualization environments.",
+        "Administered enterprise networking, including L2/L3 switching and routing, Windows Server and SQL systems.",
+        "Coordinated maintenance, incident resolution and operational improvements with vendors and contractors.",
+        "Contributed to capacity planning, resource allocation and infrastructure budgeting.",
+        "Implemented monitoring and alerting; automated routine administration with Bash, Python and Go."
       ],
       "pdf_bullets": [
-        "Led infrastructure engineers and coordinated vendors and contractors for enterprise IT operations.",
-        "Managed data center infrastructure, VMware/Hyper-V, Windows Server, SQL systems, networking and monitoring.",
-        "Planned infrastructure work, supported budgeting and capacity planning, and reported operational status."
+        "Led 7 infrastructure engineers; coordinated operations, vendors, capacity planning and budgeting.",
+        "Managed data centers, VMware/Hyper-V, Windows Server, SQL and L2/L3 networking."
       ],
       "technologies": [
         "VMware",
@@ -213,7 +265,13 @@
         "Windows Server",
         "SQL",
         "Networking",
-        "Monitoring"
+        "Monitoring",
+        "Bash",
+        "Python",
+        "Go",
+        "L2/L3 Switching & Routing",
+        "Capacity Planning",
+        "Data Center Operations"
       ],
       "logo": "assets/companies/fozzy.svg"
     }
@@ -251,6 +309,9 @@
           "level": "Intermediate",
           "icon": "hetzner"
         }
+      ],
+      "additional_technologies": [
+        "Cloud Migration"
       ]
     },
     {
@@ -309,6 +370,12 @@
           "level": "Intermediate",
           "icon": "proxmox"
         }
+      ],
+      "additional_technologies": [
+        "OKD",
+        "VMware",
+        "Hyper-V",
+        "KVM"
       ]
     },
     {
@@ -355,6 +422,10 @@
           "level": "Intermediate",
           "icon": "cloud-init"
         }
+      ],
+      "additional_technologies": [
+        "Go",
+        "Groovy"
       ]
     },
     {
@@ -419,6 +490,9 @@
           "level": "Basic",
           "icon": "gradle"
         }
+      ],
+      "additional_technologies": [
+        "Technical Documentation"
       ]
     },
     {
@@ -529,6 +603,16 @@
           "level": "Advanced",
           "icon": "aws-rds"
         }
+      ],
+      "additional_technologies": [
+        "Nginx",
+        "Apache Tomcat",
+        "Java Application Support",
+        "PHP / Laravel Operations",
+        "L2/L3 Switching & Routing",
+        "Reverse Proxy & Load Balancing",
+        "Data Center & Physical Server Administration",
+        "Workstation Administration"
       ]
     },
     {
@@ -569,6 +653,10 @@
           "level": "Basic",
           "icon": "penetration-testing"
         }
+      ],
+      "additional_technologies": [
+        "Information Security Policies",
+        "Secure Authentication"
       ]
     },
     {
@@ -621,6 +709,10 @@
           "level": "Intermediate",
           "icon": "ai-devops"
         }
+      ],
+      "additional_technologies": [
+        "Amazon Q",
+        "Kira-CLI"
       ]
     },
     {
@@ -655,6 +747,13 @@
           "level": "Intermediate",
           "icon": "technical-coordination"
         }
+      ],
+      "additional_technologies": [
+        "Backup & Recovery",
+        "Capacity Planning",
+        "Performance Tuning",
+        "Root-Cause Analysis",
+        "On-Call Operations"
       ]
     }
   ],

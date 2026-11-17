@@ -55,3 +55,5 @@ Runtime uses Vanilla JavaScript, CSS animations and IntersectionObserver. Career
 Selected work/projects and ECTS are omitted. The West Auto Hub migration description was supplied directly by the owner. Only build sources, QA, workflow and public site assets belong in this repository; reference screenshots and original CV drafts stay local.
 
 PDF consistency: `scripts/content.py` renders selected skills from references to the main website matrix, including its current proficiency levels. The summary uses the same industry list as the website. Validation checks both representations, every role/date, education, languages, contact links, embedded fonts and exactly two A4 pages. The website contains full detail; the PDF keeps a concise selection and no photograph.
+
+Career update (2026-11-17): owner-supplied titles and dates now include Hitachi Digital (May 2022–October 2026), two assignment periods and the corrected Namecheap end date (July 2020). Detailed role descriptions and concise PDF selections are synchronized. For local QA with installed Chrome, run `CV_BROWSER_CHANNEL=chrome npm run test:browser`.

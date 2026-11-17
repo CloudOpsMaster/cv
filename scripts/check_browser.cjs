@@ -43,7 +43,7 @@ async function checkLayout(page, label) {
       await new Promise(r=>setTimeout(r,250));
     }
     assert(ready,'Site failed to start');
-    browser=await engines[engine].launch();
+    browser=await engines[engine].launch(process.env.CV_BROWSER_CHANNEL ? {channel:process.env.CV_BROWSER_CHANNEL} : {});
     await mkdir(path.join(root,'qa'),{recursive:true});
     for(const viewport of viewports) {
       const {width,height}=viewport;const label=`${engine} ${width}x${height}`;
@@ -56,9 +56,9 @@ async function checkLayout(page, label) {
       await page.evaluate(()=>document.fonts.ready);
       await page.getByRole('heading',{name:'Vadym Pyrozhenko',exact:true}).waitFor();
       assert.equal(await page.locator('.professional-title').innerText(),'Cloud Infrastructure & DevOps Professional');
-      assert.equal(profile.roles[0].company,'Hitachi');
-      assert.equal(await page.locator('.career-card').first().locator('.career-position h3').innerText(),'Hitachi');
-      assert.equal(profile.roles[0].logo,'assets/companies/hitachi.svg');
+      assert.equal(profile.roles[0].company,'Hitachi Digital');
+      assert.equal(await page.locator('.career-card').first().locator('.career-position h3').innerText(),'Hitachi Digital');
+      assert.equal(profile.roles[0].logo,'assets/companies/hitachi-digital.png');
       assert(!/Moldova|\bLocation\b|Senior DevOps|Infrastructure Operations \| Technical Leadership \| Cloud & Platform Engineering/i.test(await page.locator('body').innerText()),'Removed profile claims must stay absent');
       assert.equal(await page.locator('.experience-entry').count(),7);
       assert.equal(await page.locator('#projects').count(),0,'Selected work removed');
@@ -79,8 +79,9 @@ async function checkLayout(page, label) {
       for (let index=0;index<profile.roles.length;index++) {
         const card=page.locator('.career-card').nth(index);
         if (index>0) await card.locator('summary').click();
-        assert.equal(await card.locator('.responsibilities li').count(),profile.roles[index].responsibilities.length);
-        assert.deepEqual(await card.locator('.responsibilities li').allTextContents(),profile.roles[index].responsibilities);
+        const expectedResponsibilities=[...profile.roles[index].responsibilities,...(profile.roles[index].periods || []).flatMap(period=>period.responsibilities)];
+        assert.equal(await card.locator('.responsibilities li').count(),expectedResponsibilities.length);
+        assert.deepEqual(await card.locator('.responsibilities li').allTextContents(),expectedResponsibilities);
         await checkLayout(page,label+' expanded role '+index);
         if (index>0) await card.locator('summary').click();
       }

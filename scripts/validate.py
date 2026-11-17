@@ -1,3 +1,4 @@
+from html import escape
 """Validate CV content, local links, metadata and the standalone PDF."""
 import json, re
 from html.parser import HTMLParser
@@ -35,8 +36,8 @@ schema=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>
 assert schema['@type']=='Person' and schema['name']==p['name']
 assert not any(k in schema for k in ['address','homeLocation','workLocation'])
 assert 100 <= len(' '.join(p['about']).split()) <= 300,'About length'
-assert p['roles'][0]['company']=='Hitachi','Current employer name'
-assert p['roles'][0]['logo']=='assets/companies/hitachi.svg','Current employer logo'
+assert p['roles'][0]['company']=='Hitachi Digital','Current employer name'
+assert p['roles'][0]['logo']=='assets/companies/hitachi-digital.png','Current employer logo'
 assert 'Current interests' not in html and 'class="step-number"' not in html
 assert 60 <= len(resume_summary(p).split()) <= 90,'PDF summary length'
 for f in ['sitemap.xml','robots.txt','.nojekyll','build-info.json','assets/InterVariable.woff2','assets/Inter-LICENSE.txt','assets/social-card.png']:assert (SITE/f).exists(),f
@@ -46,6 +47,8 @@ assert p['contact']['viber']=='viber://chat?number=%2B380932441801'
 levels={entry['name'] for entry in p['proficiency']['levels']}
 for group in p['skills']:
     assert group['technologies']==[item['name'] for item in group['items']]
+    for name in group.get('additional_technologies', []):
+        assert escape(name, quote=True) in html, name
     for item in group['items']:
         assert item['level'] in levels
         assert (SITE/'assets/skills'/(item['icon']+'.svg')).is_file()
@@ -94,4 +97,8 @@ for r in p['roles']:
     assert r['company'] in html and r['dates'] in html,(r['company'],'website chronology')
     for bullet in r['pdf_bullets']:assert ' '.join(bullet.split()) in flat,(r['company'],'PDF bullet')
     assert all(b in ' '.join(doc.text) for b in r['responsibilities'])
+    for period in r.get('periods', []):
+        assert period['dates'] in combined and period['dates'] in html
+        assert period['duration'] in combined and period['duration'] in html
+        assert all(b in ' '.join(doc.text) for b in period['responsibilities'])
 print('PASS: content consistency, navigation, local assets, SEO, contacts, two A4 pages, selectable text, embedded fonts and PDF links.')
