@@ -35,8 +35,17 @@
       "title": "DevOps Engineer | Cloud & Platform Infrastructure",
       "dates": "May 2022 – Oct 2026",
       "employment_type": "",
-      "context": "Cloud infrastructure, platform engineering and CI/CD support across two customer assignments.",
-      "responsibilities": [],
+      "context": "Customer AWS infrastructure, platform engineering and CI/CD operations, including infrastructure migration and engineering tooling support.",
+      "responsibilities": [
+        "Built and supported customer AWS infrastructure with a focus on scalability, reliability and security.",
+        "Developed Helm charts, implemented solution features and fixed defects in deployment code.",
+        "Developed and maintained CI/CD pipelines and supported automated deployments and production engineering teams.",
+        "Managed and upgraded Jenkins, Gerrit and SonarQube servers, maintaining platform stability and functionality.",
+        "Configured and optimized Jenkins servers to streamline continuous integration.",
+        "Migrated customer environments to AWS, supporting service continuity and minimizing downtime.",
+        "Maintained infrastructure, deployment and product documentation for development and operations teams.",
+        "Used Amazon Q and Kira-CLI to improve development and operational efficiency."
+      ],
       "pdf_bullets": [
         "Developed Helm charts and supported CI/CD; managed, upgraded and optimized Jenkins, Gerrit and SonarQube.",
         "Built customer AWS infrastructure, maintained delivery pipelines and migrated environments to AWS."
@@ -58,32 +67,7 @@
         "Kira-CLI"
       ],
       "logo": "assets/companies/hitachi-digital.png",
-      "duration": "4 years 6 months",
-      "periods": [
-        {
-          "dates": "Jan 2023 – Oct 2026",
-          "duration": "3 years 10 months",
-          "responsibilities": [
-            "Developed Helm charts, implemented solution features and fixed defects in deployment code.",
-            "Supported deployment processes, CI/CD workflows and production engineering teams.",
-            "Managed and upgraded SonarQube, Gerrit and Jenkins servers, maintaining platform stability and functionality.",
-            "Configured and optimized Jenkins servers to streamline continuous integration.",
-            "Maintained product support documentation and technical guidance for development teams.",
-            "Used Amazon Q and Kira-CLI to improve development and operational efficiency."
-          ]
-        },
-        {
-          "dates": "May 2022 – Jan 2023",
-          "duration": "9 months",
-          "responsibilities": [
-            "Worked within a DevOps team to build and support customer infrastructure in AWS.",
-            "Designed AWS infrastructure with scalability, reliability and security in mind.",
-            "Developed and maintained CI/CD pipelines for automated deployments.",
-            "Migrated customer environments to AWS, supporting service continuity and minimizing downtime.",
-            "Maintained infrastructure and deployment documentation."
-          ]
-        }
-      ]
+      "duration": "4 years 6 months"
     },
     {
       "company": "West Auto Hub",
