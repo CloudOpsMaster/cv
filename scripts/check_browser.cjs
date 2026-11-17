@@ -75,15 +75,16 @@ async function checkLayout(page, label) {
         assert(dimensions.natural>0 && dimensions.width>0,'Employer logo loaded');
         assert.equal(dimensions.fit,'contain','Employer logo keeps its aspect ratio');
       }
-      assert(await page.locator('.career-card').first().getAttribute('open') !== null);
+      assert.equal(await page.locator('.career-card[open]').count(),0,'All employers start collapsed');
       for (let index=0;index<profile.roles.length;index++) {
         const card=page.locator('.career-card').nth(index);
-        if (index>0) await card.locator('summary').click();
+        await card.locator('summary').click();
         const expectedResponsibilities=[...profile.roles[index].responsibilities,...(profile.roles[index].periods || []).flatMap(period=>period.responsibilities)];
         assert.equal(await card.locator('.responsibilities li').count(),expectedResponsibilities.length);
         assert.deepEqual(await card.locator('.responsibilities li').allTextContents(),expectedResponsibilities);
         await checkLayout(page,label+' expanded role '+index);
-        if (index>0) await card.locator('summary').click();
+        await card.locator('summary').click();
+        assert.equal(await card.getAttribute('open'),null,'Employer collapses after second click');
       }
       assert(await page.locator('.career-card').nth(1).innerText().then(text=>text.includes('Hetzner Cloud')));
 

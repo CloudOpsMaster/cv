@@ -50,7 +50,7 @@ Font licenses: Inter is self-hosted under the SIL Open Font License (`site/asset
 
 ## Career presentation and motion
 
-Runtime uses Vanilla JavaScript, CSS animations and IntersectionObserver. Career cards use native details/summary; company, title, dates, context and technologies remain visible when collapsed. The first role starts expanded. No-JavaScript disclosure works. The decorative planet arrival lasts 1.5 seconds, ignores pointer input, runs only on the home entry, skips direct section links and reduced-motion preferences, and is removed after completion. Mobile uses simpler effects.
+Runtime uses Vanilla JavaScript, CSS animations and IntersectionObserver. Career cards use native details/summary; company, title, dates, context and technologies remain visible when collapsed. All roles start collapsed and use the same disclosure interaction. No-JavaScript disclosure works. The decorative planet arrival lasts 1.5 seconds, ignores pointer input, runs only on the home entry, skips direct section links and reduced-motion preferences, and is removed after completion. Mobile uses simpler effects.
 
 Selected work/projects and ECTS are omitted. The West Auto Hub migration description was supplied directly by the owner. Only build sources, QA, workflow and public site assets belong in this repository; reference screenshots and original CV drafts stay local.
 
